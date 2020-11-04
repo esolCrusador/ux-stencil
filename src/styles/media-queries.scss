@@ -1,0 +1,21 @@
+@mixin phones-portrait {
+    @media (max-width: 450px) {
+        @content;
+    }
+}
+
+@mixin phones-and-tablets-portrait {
+    @media (max-width: 768px) {
+        @content;
+    }
+
+    @media (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin desktop-or-landscape {
+    @media (min-width: 960px) {
+        @content;
+    }
+}

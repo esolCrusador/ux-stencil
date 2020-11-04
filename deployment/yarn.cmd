@@ -1,0 +1,1 @@
+npm upgrade yarn -g || npm install yarn@latest -g

@@ -1,0 +1,1 @@
+deployment\FtpUploader.exe ftp://waws-prod-par-011.ftp.azurewebsites.windows.net/site/wwwroot -u draw-b4\$draw-b4 -p FHLCDeb7lwuWjqJLwjYxaelwEddPC9eT8vdiBmGemrnMjC7quyDuXe4lQxFu -c ["delete dist","upload index.js","upload dist"]
