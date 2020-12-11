@@ -38,6 +38,18 @@ h1 {
 .button {
     font-size: 12px;
     text-transform: uppercase;
+    padding: 12px 0;
+    text-align: center;
+    width: 100%;
+    border-radius: 100px;
+    border: solid 1px $dotColor;
+    background-color: white;
+    font-weight: 700;
+
+    &.primary {
+        background-color: $dotColor;
+        color: white;
+    }
 }
 
 .swag {
@@ -119,12 +131,33 @@ h1 {
     }
 }
 
+$columnMargins: 10px;
+.columns {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: -$columnMargins;
+    margin-right: -$columnMargins;
+}
+
+.columns-2 {
+    > .column {
+        padding-left: $columnMargins;
+        padding-right: $columnMargins;
+        flex-grow: 1;
+        min-width: 50%;
+        @include phones-portrait {
+            width: 100%;
+        }
+    }
+}
+
 #top-block {
     position: relative;
 
     > .background {
         opacity: 0.1;
         min-width: 100%;
+        z-index: -1;
 
         @include phones-portrait {
             img {
@@ -237,14 +270,10 @@ h1 {
             }
         }
 
-        #summary-text {
+        section {
             display: flex;
             align-content: flex-end;
 
-            margin-top: 30px;
-            word-spacing: 2px;
-            line-height: 20px;
-            @include dynamicSize(13, 16);
             justify-content: flex-end;
 
             > div {
@@ -254,9 +283,27 @@ h1 {
                     width: 100%;
                 }
             }
+
+            .summary-element {
+                margin-top: 30px;
+            }
+        }
+
+        #summary-text {
+            word-spacing: 2px;
+            line-height: 20px;
+            @include dynamicSize(13, 16);
         }
 
         #actions-panel {
+            > div {
+                width: 90%;
+                margin-right: -20%;
+                @include phones-portrait {
+                    width: 100%;
+                    margin-right: 0;
+                }
+            }
         }
     }
 }
