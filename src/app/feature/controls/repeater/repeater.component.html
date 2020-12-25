@@ -1,0 +1,5 @@
+<div [class]="rowClass" *ngFor="let row of rowIndexes">
+    <ng-container *ngFor="let col of colIndexes">
+        <ng-content *ngTemplateOutlet="itemTemplateRef; context: { row: row, col: col }"></ng-content>
+    </ng-container>
+</div>

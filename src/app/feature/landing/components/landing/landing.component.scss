@@ -1,6 +1,6 @@
 @import "../../../mixins.scss";
+@import "../../../variables.scss";
 
-$dotColor: #333333;
 $swagBackground: #c9f3f5;
 
 @mixin dynamicSize($minSize, $maxSize) {
@@ -33,23 +33,6 @@ h1 {
     @include dynamicSize(40, 60);
     font-weight: 700;
     letter-spacing: 0px;
-}
-
-.button {
-    font-size: 12px;
-    text-transform: uppercase;
-    padding: 12px 0;
-    text-align: center;
-    width: 100%;
-    border-radius: 100px;
-    border: solid 1px $dotColor;
-    background-color: white;
-    font-weight: 700;
-
-    &.primary {
-        background-color: $dotColor;
-        color: white;
-    }
 }
 
 .swag {
@@ -98,16 +81,6 @@ h1 {
     }
 }
 
-.dot {
-    border-radius: 50%;
-    border: 1px solid $dotColor;
-    background-color: $dotColor;
-
-    &.empty {
-        background-color: transparent;
-    }
-}
-
 .dot-group {
     display: flex;
     justify-content: space-between;
@@ -129,6 +102,12 @@ h1 {
     &.vertical {
         flex-flow: column;
     }
+}
+
+.contacts-list {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
 }
 
 $columnMargins: 10px;
@@ -212,8 +191,7 @@ $columnMargins: 10px;
                         left: 35%;
 
                         .dot {
-                            width: 0.07em;
-                            height: 0.07em;
+                            font-size: 0.7rem;
                         }
                     }
                 }
@@ -302,6 +280,43 @@ $columnMargins: 10px;
                 @include phones-portrait {
                     width: 100%;
                     margin-right: 0;
+                }
+            }
+        }
+
+        #contacts-panel {
+            > div {
+                width: 80%;
+                margin-right: -20%;
+                @include phones-portrait {
+                    width: 100%;
+                    margin-right: 0;
+                }
+            }
+
+            #top-dots {
+                display: inline-block;
+                font-size: 5px;
+                .dot-group {
+                    margin-bottom: 10px;
+                    .dot {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            .contacts {
+                display: flex;
+            }
+
+            #right-dots {
+                display: inline-block;
+                font-size: 7px;
+                .dot-group {
+                    margin-bottom: 28px;
+                    .dot {
+                        margin-right: 16px;
+                    }
                 }
             }
         }

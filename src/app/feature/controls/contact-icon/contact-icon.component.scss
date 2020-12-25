@@ -1,0 +1,17 @@
+@import "../../variables.scss";
+
+my-contact-icon {
+    a {
+        background-color: $activeColor;
+        font-size: 13px;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+
+        text-decoration: none;
+        color: white;
+    }
+}

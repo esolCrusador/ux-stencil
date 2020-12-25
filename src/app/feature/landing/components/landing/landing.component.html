@@ -30,10 +30,11 @@
                     <div id="photo-selector">
                         <i id="photo-selector-icon" class="icon-photo-selector">
                             <div class="dot-group vertical">
-                                <div class="dot"></div>
-                                <div class="dot empty"></div>
-                                <div class="dot empty"></div>
-                                <div class="dot empty"></div>
+                                <my-repeater rows="4" rowClass="dot">
+                                    <ng-template #item let-row="row" let-col="col">
+                                        <i [class.icon-circle]="row === 0" [class.icon-empty-circle]="row > 0"></i>
+                                    </ng-template>
+                                </my-repeater>
                             </div>
                         </i>
                     </div>
@@ -64,10 +65,40 @@
             <div>
                 <div class="columns columns-2">
                     <div class="column summary-element">
-                        <button class="button primary"> Order a stencil </button>
+                        <a class="button primary" [href]="telegram | contactLinkPipe:ContactType.Telegram | bypassDomSecurityPipe" target="_blank">
+                            Order a stencil
+                        </a>
                     </div>
                     <div class="column summary-element">
                         <button class="button">Lean More <i class="icon-arrow-edge"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contacts-panel">
+            <div>
+                <div id="top-dots" class="summary-element dot-group vertical">
+                    <my-repeater cols="3" rows="5" rowClass="dot-group">
+                        <ng-template #item>
+                            <i class="dot icon-circle"></i>
+                        </ng-template>
+                    </my-repeater>
+                </div>
+                <div class="contacts">
+                    <div class="contacts-list">
+                        <my-contact-icon [contact]="instagram" [contactType]="ContactType.Instagram" iconClass="icon-instagram">
+                        </my-contact-icon>
+                        <my-contact-icon [contact]="telegram" [contactType]="ContactType.Telegram" iconClass="icon-telegram">
+                        </my-contact-icon>
+                        <my-contact-icon [contact]="mail" [contactType]="ContactType.Mail" iconClass="icon-google">
+                        </my-contact-icon>
+                    </div>
+                    <div id="right-dots" class="dot-group vertical">
+                        <my-repeater cols="6" rows="3" rowClass="dot-group">
+                            <ng-template #item>
+                                <i class="dot icon-circle"></i>
+                            </ng-template>
+                        </my-repeater>
                     </div>
                 </div>
             </div>
