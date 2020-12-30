@@ -1,0 +1,47 @@
+@import "../variables.scss";
+@import "../mixins/index.scss";
+
+.cards-list {
+    margin-top: 25px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    @include phones-portrait {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.card {
+    margin-top: 75px;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+
+    @include phones-portrait {
+        width: 100%;
+    }
+
+    .card-icon {
+        font-size: 100px;
+    }
+
+    .card-number {
+        margin-top: 24px;
+        font-size: 1.05em;
+    }
+
+    .card-title {
+        margin-top: 32px;
+    }
+    .card-description {
+        margin-top: 24px;
+        color: $appGray;
+        text-align: center;
+        line-height: 2em;
+        font-size: 14px;
+    }
+}

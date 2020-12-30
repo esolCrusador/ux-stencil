@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component } from "@angular/core";
 import { ContactType } from "src/app/feature/controls/contact-link/contact.pipe";
 
 @Component({

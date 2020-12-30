@@ -1,0 +1,98 @@
+<div class="my-features-widget">
+    <div class="title">
+        <h4>
+            ‒ What are the advantages
+        </h4>
+        <h2>
+            How to make the most with
+            <span class="swag">our&nbsp;stencil?<span class="swag-background"></span></span>
+        </h2>
+    </div>
+    <div class="cards-list">
+        <div class="card section">
+            <div class="card-icon">
+                <i class="icon-make-note">
+                    <my-repeater cols="6">
+                        <ng-template #item let-col="col">
+                            <i class="{{ 'path' + (col + 1).toString() }}"></i>
+                        </ng-template>
+                    </my-repeater>
+                </i>
+            </div>
+            <h5 class="card-number">
+                1
+            </h5>
+            <h5 class="card-title">
+                speak to your ideas
+            </h5>
+            <div class="card-description">
+                Before going digital take a stencil and a sketching pad and think a bit on paper.  
+            </div>
+        </div>
+
+        <div class="card section">
+            <div class="card-icon">
+                <i class="icon-generate-idea">
+                    <my-repeater cols="27">
+                        <ng-template #item let-col="col">
+                            <i class="{{ 'path' + (col + 1).toString() }}"></i>
+                        </ng-template>
+                    </my-repeater>
+                </i>
+            </div>
+            <h5 class="card-number">
+                2
+            </h5>
+            <h5 class="card-title">
+                concentrate on logics
+            </h5>
+            <div class="card-description">
+                Let every new feature contribute to great UX design of your product. 
+            </div>
+        </div>
+
+
+        <div class="card section">
+            <div class="card-icon">
+                <i class="icon-launch-rocket">
+                    <my-repeater cols="10">
+                        <ng-template #item let-col="col">
+                            <i class="{{ 'path' + (col + 1).toString() }}"></i>
+                        </ng-template>
+                    </my-repeater>
+                </i>
+            </div>
+            <h5 class="card-number">
+                3
+            </h5>
+            <h5 class="card-title">
+                share in no time
+            </h5>
+            <div class="card-description">
+                Check your ideas fast and share them with team or potential users.
+            </div>
+        </div>
+
+
+        <div class="card section">
+            <div class="card-icon">
+                <i class="icon-export-to-figma">
+                    <my-repeater cols="15">
+                        <ng-template #item let-col="col">
+                            <i class="{{ 'path' + (col + 1).toString() }}"></i>
+                        </ng-template>
+                    </my-repeater>
+                </i>
+            </div>
+            <h5 class="card-number">
+                4
+            </h5>
+            <h5 class="card-title">
+                export to Figma
+            </h5>
+            <div class="card-description">
+                Scan your paper sketches and easily import them into Figma!
+            </div>
+        </div>
+    </div>
+</div>

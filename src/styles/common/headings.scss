@@ -1,0 +1,37 @@
+@import "../variables.scss";
+@import "../mixins/index.scss";
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+
+h1,
+h2,
+h5 {
+    font-family: Arvo;
+    font-weight: 700;
+    letter-spacing: 0px;
+}
+
+h1 {
+    @include dynamicSize(40, 60);
+}
+
+h2 {
+    @include dynamicSize(22, 48);
+}
+
+h5 {
+    font-size: 14px;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: $appGray;
+    letter-spacing: 1.5px;
+}

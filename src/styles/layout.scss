@@ -1,6 +1,25 @@
+@import "variables.scss";
+
 body {
     margin: 0;
 }
 * {
     box-sizing: border-box;
+}
+
+section {
+    @include phones-portrait {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+.section {
+    margin-left: 70px;
+    margin-right: 70px;
+
+    @include phones-portrait {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
 }

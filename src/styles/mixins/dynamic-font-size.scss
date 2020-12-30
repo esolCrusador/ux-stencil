@@ -1,0 +1,9 @@
+@mixin dynamicSize($minSize, $maxSize) {
+    $growth: ($maxSize - $minSize) / (1400 - 350);
+    $base: $minSize - 350 * $growth;
+
+    font-size: calc(#{$base}px + #{$growth * 100}vmin);
+    @include phones-portrait {
+        font-size: calc(#{$base}px + #{$growth * 100}vmin);
+    }
+}

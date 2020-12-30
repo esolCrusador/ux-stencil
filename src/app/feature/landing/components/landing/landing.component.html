@@ -12,9 +12,11 @@
         <div>
             <i class="icon-menu-container">
                 <div class="dash-group vertical">
-                    <div class="dash"></div>
-                    <div class="dash"></div>
-                    <div class="dash"></div>
+                    <my-repeater rows="3" rowClass="dash">
+                        <ng-template #item>
+                            <i class="icon-dash"></i>
+                        </ng-template>
+                    </my-repeater>
                 </div>
             </i>
         </div>
@@ -112,4 +114,7 @@
             </div>
         </section>
     </div>
+</div>
+<div id="features-block">
+    <my-features-widget></my-features-widget>
 </div>
