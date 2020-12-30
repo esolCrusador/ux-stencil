@@ -1,18 +1,18 @@
 @font-face {
-  font-family: "draw-b4";
-  src: url("~/assets/fonts/draw-b4.eot?bsyg62");
-  src: url("~/assets/fonts/draw-b4.eot?bsyg62#iefix") format("embedded-opentype"),
-    url("~/assets/fonts/draw-b4.ttf?bsyg62") format("truetype"), url("~/assets/fonts/draw-b4.woff?bsyg62") format("woff"),
-    url("~/assets/fonts/draw-b4.svg?bsyg62#draw-b4") format("svg");
+  font-family: 'draw-b4';
+  src:  url('~/assets/fonts/draw-b4.eot?7o6ldf');
+  src:  url('~/assets/fonts/draw-b4.eot?7o6ldf#iefix') format('embedded-opentype'),
+    url('~/assets/fonts/draw-b4.ttf?7o6ldf') format('truetype'),
+    url('~/assets/fonts/draw-b4.woff?7o6ldf') format('woff'),
+    url('~/assets/fonts/draw-b4.svg?7o6ldf#draw-b4') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "draw-b4" !important;
+  font-family: 'draw-b4' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -320,6 +320,9 @@
 .icon-calendar:before {
   content: "\e939";
 }
+.icon-empty-thin-circle:before {
+  content: "\e947";
+}
 .icon-empty-circle:before {
   content: "\e93a";
 }
@@ -351,4 +354,7 @@
 .icon-menu-container:before {
   content: "\e902";
   color: #60cfd8;
+}
+.icon-dash:before {
+  content: "\e948";
 }
