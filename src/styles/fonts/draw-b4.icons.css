@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'draw-b4';
-  src:  url('~/assets/fonts/draw-b4.eot?7o6ldf');
-  src:  url('~/assets/fonts/draw-b4.eot?7o6ldf#iefix') format('embedded-opentype'),
-    url('~/assets/fonts/draw-b4.ttf?7o6ldf') format('truetype'),
-    url('~/assets/fonts/draw-b4.woff?7o6ldf') format('woff'),
-    url('~/assets/fonts/draw-b4.svg?7o6ldf#draw-b4') format('svg');
+  src:  url('~/fonts/draw-b4.eot?7o6ldf');
+  src:  url('~/fonts/draw-b4.eot?7o6ldf#iefix') format('embedded-opentype'),
+    url('~/fonts/draw-b4.ttf?7o6ldf') format('truetype'),
+    url('~/fonts/draw-b4.woff?7o6ldf') format('woff'),
+    url('~/fonts/draw-b4.svg?7o6ldf#draw-b4') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
