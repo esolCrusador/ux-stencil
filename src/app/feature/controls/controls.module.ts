@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { RepeaterComponent } from "./repeater/repeater.component";
 import { ContactIconComponent } from './contact-icon/contact-icon.component';
+import { PhotoSliderComponent } from './photos-slider/photo-slider.component';
 import { ContactLinkPipe } from './contact-link/contact.pipe';
 import { BypassDomSecurityPipe } from './bypass-dom-security/bypass-dom-security.pipe';
 
@@ -12,6 +13,7 @@ import { BypassDomSecurityPipe } from './bypass-dom-security/bypass-dom-security
     declarations: [
         RepeaterComponent,
         ContactIconComponent,
+        PhotoSliderComponent,
 
         ContactLinkPipe,
         BypassDomSecurityPipe,
@@ -19,6 +21,7 @@ import { BypassDomSecurityPipe } from './bypass-dom-security/bypass-dom-security
     exports: [
         RepeaterComponent,
         ContactIconComponent,
+        PhotoSliderComponent,
 
         ContactLinkPipe,
         BypassDomSecurityPipe,
