@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { ContactType } from "src/app/feature/controls/contact-link/contact.pipe";
+import { Component } from '@angular/core';
+import { ContactType } from 'src/app/feature/controls/contact-link/contact.pipe';
 
 @Component({
     selector: 'app-landing',

@@ -19,9 +19,9 @@ export class ServerCache {
         timeMachine?: ITimeMachine,
         cleanupInterval: number = 60 * 1000
     ) {
-        if(!timeMachine)
+        if (!timeMachine)
             timeMachine = {
-                getDate : () => new Date(), 
+                getDate : () => new Date(),
                 createInterval: (action, period) => {
                     const interval = setInterval(() => action(), period);
                     return () => clearInterval(interval);
@@ -38,7 +38,7 @@ export class ServerCache {
     }
 
     public async getOrUpdate<TValue>(key: string, create: () => Promise<TValue>, expiration: number, renew: number): Promise<TValue> {
-        let cacheEntry = this._cacheDictionary.get(key);
+        const cacheEntry = this._cacheDictionary.get(key);
         if (!cacheEntry || this.isExpired(cacheEntry)) {
             const value = await create();
             this._cacheDictionary.set(key, this.createEntry(value, expiration, renew));
@@ -84,7 +84,7 @@ export class ServerCache {
     }
 
     private cleanup() {
-        for (let [key, entry] of this._cacheDictionary.entries()) {
+        for (const [key, entry] of this._cacheDictionary.entries()) {
             if (this.isExpired(entry))
                 this._cacheDictionary.delete(key);
         }

@@ -48,7 +48,7 @@ describe('ServerCache', () => {
         });
 
         it('should return by delegate', async () => {
-            let result = await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue), 1000, 1000);
+            const result = await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue), 1000, 1000);
 
             expect(result).toBe(sampleValue);
         });
@@ -56,7 +56,7 @@ describe('ServerCache', () => {
         it('should get from cache', async () => {
             await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue), 1000, 1000);
             fakeTimeMachine.addMilliseconds(500);
-            let result = await serverCache.getOrUpdate('123', () => Promise.resolve({}), 1000, 1000);
+            const result = await serverCache.getOrUpdate('123', () => Promise.resolve({}), 1000, 1000);
 
             expect(result).toBe(sampleValue);
         });
@@ -65,7 +65,7 @@ describe('ServerCache', () => {
             await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue), 1000, 1000);
             fakeTimeMachine.addMilliseconds(500);
             const sampleValue2 = { value: 2 };
-            let result = await serverCache.getOrUpdate('456', () => Promise.resolve(sampleValue2), 1000, 1000);
+            const result = await serverCache.getOrUpdate('456', () => Promise.resolve(sampleValue2), 1000, 1000);
 
             expect(result).toBe(sampleValue2);
         });
@@ -73,8 +73,8 @@ describe('ServerCache', () => {
         it('should get from cache if expired', async () => {
             await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue), 1000, 1000);
             fakeTimeMachine.addMilliseconds(1500);
-            let sampleValue2 = { value: 2 };
-            let result = await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue2), 1000, 1000);
+            const sampleValue2 = { value: 2 };
+            const result = await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue2), 1000, 1000);
 
             expect(result).toBe(sampleValue2);
         });
@@ -82,14 +82,14 @@ describe('ServerCache', () => {
         it('should get from cache and than renew', async () => {
             await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue), 1000, 500);
             fakeTimeMachine.addMilliseconds(750);
-            let sampleValue2 = { value: 2 };
+            const sampleValue2 = { value: 2 };
 
-            let result1 = await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue2), 1000, 500);
+            const result1 = await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue2), 1000, 500);
             expect(result1).toBe(sampleValue);
 
             fakeTimeMachine.addMilliseconds(200);
 
-            let result2 = await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue), 1000, 500);
+            const result2 = await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue), 1000, 500);
             expect(result2).toBe(sampleValue2);
         });
 
@@ -97,14 +97,14 @@ describe('ServerCache', () => {
             await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue), 1000, 500);
             fakeTimeMachine.addMilliseconds(750);
 
-            let subject1$ = new Subject<any>();
-            let value1$ = subject1$.pipe(first()).toPromise();
-            let result1 = await serverCache.getOrUpdate('123', () => value1$, 1000, 500);
+            const subject1$ = new Subject<any>();
+            const value1$ = subject1$.pipe(first()).toPromise();
+            const result1 = await serverCache.getOrUpdate('123', () => value1$, 1000, 500);
             expect(result1).toBe(sampleValue);
 
             fakeTimeMachine.addMilliseconds(200);
 
-            let result2 = await serverCache.getOrUpdate('123', () => Promise.resolve({}), 1000, 500);
+            const result2 = await serverCache.getOrUpdate('123', () => Promise.resolve({}), 1000, 500);
 
             expect(result2).toBe(sampleValue);
             subject1$.next({});
@@ -115,19 +115,19 @@ describe('ServerCache', () => {
         it('should not request promise 2 times', async () => {
             await serverCache.getOrUpdate('123', () => Promise.resolve(sampleValue), 1000, 500);
             fakeTimeMachine.addMilliseconds(750);
-            let sampleValue2 = { value: 2 };
+            const sampleValue2 = { value: 2 };
 
-            let subject1$ = new Subject<any>();
+            const subject1$ = new Subject<any>();
             const value1$ = subject1$.pipe(first()).toPromise();
-            let result1 = await serverCache.getOrUpdate('123', () => value1$, 1000, 500);
+            const result1 = await serverCache.getOrUpdate('123', () => value1$, 1000, 500);
             expect(result1).toBe(sampleValue);
 
             subject1$.next(sampleValue2);
             await value1$;
             fakeTimeMachine.addMilliseconds(750);
 
-            let subject2$ = new Subject<any>();
-            let result2 = await serverCache.getOrUpdate('123', () => subject2$.pipe(first()).toPromise(), 1000, 500);
+            const subject2$ = new Subject<any>();
+            const result2 = await serverCache.getOrUpdate('123', () => subject2$.pipe(first()).toPromise(), 1000, 500);
             subject2$.next(sampleValue);
 
             expect(result2).toBe(sampleValue2);
