@@ -1,1 +1,0 @@
-deployment\yarn.cmd && deployment\yarn-install.cmd && deployment\build.cmd && deployment\deploy.cmd

@@ -1,0 +1,1 @@
+deployment\yarn.cmd && deployment\yarn-install.cmd && deployment\build.cmd && deployment\deploy.cmd ftp://waws-prod-par-011.ftp.azurewebsites.windows.net/site/wwwroot draw-b4\$draw-b4 FHLCDeb7lwuWjqJLwjYxaelwEddPC9eT8vdiBmGemrnMjC7quyDuXe4lQxFu
