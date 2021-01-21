@@ -1,7 +1,7 @@
 <div class="about-widget">
     <my-photo-slider [photos]="galleryPhotos"></my-photo-slider>
     <div class="about">
-        <div class="title">
+        <div class="section">
             <h4>
                 ‒ About the Product
             </h4>
@@ -11,8 +11,35 @@
                     <span class="swag-background"></span>
                 </span>
             </h2>
+        </div>
+        <br />
+        <p class="bold about-title section">
+            ABOUT
+        </p>
+        <div class="description section">
             <p>
-                <b></b>
+                A steel stencil designed for sketching iPhone prototypes.
+                Brainstorm your application ideas using our precision cut stainless steel stencil.
+            </p>
+            <p>
+                Features:
+                <br />
+                - 99% scale iPhone X
+                <br />
+                - 84x169 mm - 6.6x3.3 inches
+                <br />
+                - This stencil works with our Mobile Sketch Pad.
+                <br />
+                - Made in Belarus
+            </p>
+            <p class="cost-section">
+                <span>
+                    <i class="icon-track track"></i>
+                    FREE SHIPPING
+                </span>
+                <span class="cost">
+                    {{ cost }}
+                </span>
             </p>
         </div>
     </div>

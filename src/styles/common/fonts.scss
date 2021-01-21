@@ -1,0 +1,16 @@
+$numbers: (
+    "OpenSans": (100: "Light", 200: "Light", 300: "Regular", 400: "Regular", 500: "SemiBold", 600: "SemiBold", 700: "Bold", 800: "Bold", 900: "ExtraBold"),
+    "Montserrat": (100: "Thin", 200: "ExtraLight", 300: "Light", 400: "Regular", 500: "Medium", 600: "SemiBold", 700: "Bold", 800: "ExtraBold", 900: "Black")
+);
+
+@each $fontFamily, $weights in $numbers {
+    @each $weight, $boldness in $weights {
+        @font-face {
+          font-family: '#{$fontFamily}';
+          src: url('~/fonts/#{$fontFamily}/#{$fontFamily}-#{$boldness}.ttf') format('truetype');
+          font-style: normal;
+          font-weight: $weight;
+          font-display: swap;
+        }
+    }
+}

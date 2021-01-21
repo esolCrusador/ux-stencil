@@ -10,26 +10,4 @@
     @include phones-portrait {
         padding-top: 0;
     }
-
-    .title {
-        padding-left: 120px;
-        text-transform: uppercase;
-
-        h2 {
-            width: 50%;
-            padding-top: 40px;
-        }
-
-        @include phones-portrait {
-            padding-left: 70px;
-            padding-right: 70px;
-            padding-top: 24px;
-
-            text-align: center;
-
-            h2 {
-                width: 100%;
-            }
-        }
-    }
 }

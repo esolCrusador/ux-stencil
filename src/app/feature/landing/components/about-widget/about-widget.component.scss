@@ -1,0 +1,43 @@
+@import "../../../mixins.scss";
+
+.about-widget {
+    margin-top: 65px;
+
+    background-color: white;
+
+    display: flex;
+    flex-flow: row-reverse wrap;
+
+    > * {
+        width: 50%;
+        padding-top: 100px;
+    }
+
+    @include phones-portrait {
+        > * {
+            width: 100%;
+            padding-top: 35px;
+        }
+    }
+
+    .about {
+        @include dynamicSize(14, 17);
+        line-height: 1.8em;
+        .about-title {
+            font-size: 12px;
+        }
+        .cost-section {
+            display: flex;
+            justify-content: space-between;
+
+            .track {
+                @include dynamicSize(20, 35);
+                margin-right: 0.5em;
+            }
+            .cost {
+                @include dynamicSize(20, 35);
+                color: black;
+            }
+        }
+    }
+}

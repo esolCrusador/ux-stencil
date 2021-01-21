@@ -16,4 +16,15 @@
 }
 
 body {
+    font-family: "OpenSans";
+    font-weight: 400;
+    color: black;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.description {
+    color: $appGray;
 }

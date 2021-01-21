@@ -4,9 +4,13 @@
 .photo-slider {
     position: relative;
 
+    img {
+        max-width: 100%;
+    }
+
     .slider-controls {
         @include dynamicSize(11, 22);
-        
+
         height: 3em;
         position: absolute;
         display: flex;
