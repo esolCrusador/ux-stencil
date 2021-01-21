@@ -39,5 +39,11 @@
                 color: black;
             }
         }
+        .order-button {
+            width: 50%;
+            @include phones-portrait {
+                width: 100%;
+            }
+        }
     }
 }

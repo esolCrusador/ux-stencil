@@ -41,6 +41,13 @@
                     {{ cost }}
                 </span>
             </p>
+            <br/>
+            <a class="order-button button primary" [href]="telegram | contactLinkPipe:ContactType.Telegram | bypassDomSecurityPipe" target="_blank">
+                Order a stencil
+            </a>
+            <p>
+                *and get a sketching pad for free
+            </p>
         </div>
     </div>
 </div>
