@@ -3,11 +3,6 @@
 .about-widget {
     margin-top: 65px;
 
-    background-color: white;
-
-    display: flex;
-    flex-flow: row-reverse wrap;
-
     > * {
         width: 50%;
         padding-top: 100px;
@@ -19,6 +14,11 @@
             padding-top: 35px;
         }
     }
+
+    background-color: white;
+
+    display: flex;
+    flex-flow: row-reverse wrap;
 
     .about {
         @include dynamicSize(14, 17);

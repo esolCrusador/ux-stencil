@@ -1,0 +1,71 @@
+<div class="my-ux-jams-widget">
+    <div class="photos-block">
+        <div class="photos-galery">
+            <my-photo-slider [photos]="['assets/images/gallery/prototypes-notebook.png', 'assets/images/gallery/drawn-prototypes.png']"></my-photo-slider>
+        </div>
+        <div class="actions-board">
+            <div class="share">
+                <div class="share icon-container">
+                    <i class="icon-share"></i>
+                </div>
+                <div class="photo-container">
+                    <img src="assets/images/gallery/prototypes-notebook.png" />
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="schedule">
+                <div class="photo-container">
+                    <img src="assets/images/gallery/drawn-prototypes.png" />
+                </div>
+                <div class="calendar icon-container">
+                    <i class="icon-calendar"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="have-some-fun">
+        <div class="section">
+            <h4>
+                ‒ Have Some Fun
+            </h4>
+            <h2>
+                Join Our UX
+                <br />
+                &nbsp;
+                <span class="swag">
+                    Mobile Stencil
+                    <span class="swag-background"></span>
+                </span>
+            </h2>
+            <br />
+            <p class="description">
+                Participate in our UX jamming sessions where we define and solve challenges within a short span of time. We also do a lot of sketching so that’s where our stencils come very handy too!
+            </p>
+            <div>
+                <div class="summary-element dot-group vertical vertical-dots">
+                    <my-repeater cols="3" rows="5" rowClass="dot-group">
+                        <ng-template #item>
+                            <i class="dot icon-circle"></i>
+                        </ng-template>
+                    </my-repeater>
+                </div>
+                <div class="contacts">
+                    <my-contact-link [contact]="uxJamsGroup" [contactType]="ContactType.Telegram">
+                        <my-contact-icon iconClass="icon-telegram">
+                        </my-contact-icon>
+                        &nbsp;
+                        {{ uxJamsGroupLabel }}
+                    </my-contact-link>
+                    <br />
+                    <my-contact-link [contact]="instagram" [contactType]="ContactType.Instagram">
+                        <my-contact-icon iconClass="icon-instagram">
+                        </my-contact-icon>
+                        &nbsp;
+                        {{ instagramLabel }}
+                    </my-contact-link>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

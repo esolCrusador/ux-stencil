@@ -1,0 +1,35 @@
+@import '../variables.scss';
+
+.dot-group {
+    display: flex;
+    justify-content: space-between;
+    &.vertical {
+        flex-flow: column;
+    }
+
+    .dot-group {
+        .dot {
+            color: $dotColor;
+        }
+    }
+}
+
+.dash-group {
+    display: flex;
+    justify-content: space-between;
+    &.vertical {
+        flex-flow: column;
+    }
+}
+
+.vertical-dots {
+    width: 45px;
+    height: 75px;
+    font-size: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    .dot {
+        transform: scale(0.8, 1.35);
+    }
+}

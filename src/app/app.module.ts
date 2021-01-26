@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingModule } from './feature/landing/landing.module';
 import { ControlsModule } from './feature/controls/controls.module';
+import { CommonServicesModule } from './feature/common/services/common-services.module';
+
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { ControlsModule } from './feature/controls/controls.module';
     AppRoutingModule,
     ControlsModule,
     LandingModule,
+
+    CommonServicesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -80,7 +80,7 @@
         </section>
         <section id="contacts-panel">
             <div>
-                <div id="top-dots" class="summary-element dot-group vertical">
+                <div class="summary-element dot-group vertical vertical-dots">
                     <my-repeater cols="3" rows="5" rowClass="dot-group">
                         <ng-template #item>
                             <i class="dot icon-circle"></i>
@@ -89,12 +89,18 @@
                 </div>
                 <div class="contacts">
                     <div class="contacts-list">
-                        <my-contact-icon [contact]="instagram" [contactType]="ContactType.Instagram" iconClass="icon-instagram">
-                        </my-contact-icon>
-                        <my-contact-icon [contact]="telegram" [contactType]="ContactType.Telegram" iconClass="icon-telegram">
-                        </my-contact-icon>
-                        <my-contact-icon [contact]="mail" [contactType]="ContactType.Mail" iconClass="icon-google">
-                        </my-contact-icon>
+                        <my-contact-link [contact]="instagram" [contactType]="ContactType.Instagram">
+                            <my-contact-icon iconClass="icon-instagram">
+                            </my-contact-icon>
+                        </my-contact-link>
+                        <my-contact-link [contact]="telegram" [contactType]="ContactType.Telegram">
+                            <my-contact-icon iconClass="icon-telegram">
+                            </my-contact-icon>
+                        </my-contact-link>
+                        <my-contact-link [contact]="mail" [contactType]="ContactType.Mail">
+                            <my-contact-icon iconClass="icon-google">
+                            </my-contact-icon>
+                        </my-contact-link>
                     </div>
                     <div id="right-dots" class="dot-group vertical">
                         <my-repeater cols="6" rows="3" rowClass="dot-group">
@@ -120,4 +126,7 @@
 </div>
 <div id="about-block">
     <my-about-widget [telegram]="telegram"></my-about-widget>
+</div>
+<div id="ux-jams-block">
+    <my-ux-jams-widget  [instagramLabel]="instagramLabel" [instagram]="instagram" [uxJamsGroupLabel]="uxJamsGroupLabel" [uxJamsGroup]="uxJamsGroup"></my-ux-jams-widget>
 </div>

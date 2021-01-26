@@ -5,6 +5,7 @@ import { ContactIconComponent } from './contact-icon/contact-icon.component';
 import { PhotoSliderComponent } from './photos-slider/photo-slider.component';
 import { ContactLinkPipe } from './contact-link/contact.pipe';
 import { BypassDomSecurityPipe } from './bypass-dom-security/bypass-dom-security.pipe';
+import { ContactLinkComponent } from './contact-link/contact-link.component';
 
 @NgModule({
     imports: [
@@ -14,6 +15,7 @@ import { BypassDomSecurityPipe } from './bypass-dom-security/bypass-dom-security
         RepeaterComponent,
         ContactIconComponent,
         PhotoSliderComponent,
+        ContactLinkComponent,
 
         ContactLinkPipe,
         BypassDomSecurityPipe,
@@ -22,6 +24,7 @@ import { BypassDomSecurityPipe } from './bypass-dom-security/bypass-dom-security
         RepeaterComponent,
         ContactIconComponent,
         PhotoSliderComponent,
+        ContactLinkComponent,
 
         ContactLinkPipe,
         BypassDomSecurityPipe,

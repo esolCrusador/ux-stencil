@@ -1,0 +1,103 @@
+@import "../../../variables.scss";
+@import "../../../mixins.scss";
+
+.my-ux-jams-widget {
+    margin-top: 65px;
+
+    > * {
+        width: 50%;
+        padding-top: 100px;
+    }
+
+    @include phones-portrait {
+        > * {
+            width: 100%;
+            padding-top: 35px;
+        }
+    }
+
+    display: flex;
+    flex-flow: wrap;
+
+    .have-some-fun {
+        max-width: 500px;
+    }
+
+    .photos-block {
+        .photos-galery {
+            display: none;
+        }
+
+        .actions-board {
+            .share {
+                .icon-container {
+                    align-self: flex-end;
+                }
+            }
+
+            .schedule {
+            }
+            .share,
+            .schedule {
+                display: flex;
+                justify-content: space-between;
+
+                .photo-container {
+                    width: 75%;
+                    display: flex;
+                    justify-content: center;
+
+                    img {
+                        width: 75%;
+                    }
+                }
+            }
+
+            .icon-container {
+                width: 3em;
+                height: 3em;
+
+                @include dynamicSize(20, 70);
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &.share {
+                    background-color: $shareIconContainer;
+                    color: white;
+                }
+
+                &.calendar {
+                    background-color: $calendarIconContainer;
+                    color: $activeColor;
+                }
+            }
+        }
+
+        @include phones-portrait {
+            .photos-galery {
+                display: initial;
+            }
+
+            .actions-board {
+                display: none;
+            }
+        }
+    }
+
+    .contacts {
+        my-contact-link {
+            a {
+                color: $activeColor;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+
+                my-contact-icon {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
