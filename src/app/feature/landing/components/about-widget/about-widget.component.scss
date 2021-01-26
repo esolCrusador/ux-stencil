@@ -40,9 +40,10 @@
             }
         }
         .order-button {
-            width: 50%;
+            max-width: 250px;
+
             @include phones-portrait {
-                width: 100%;
+                max-width: 100%;
             }
         }
     }
