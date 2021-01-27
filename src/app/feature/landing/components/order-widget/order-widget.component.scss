@@ -1,0 +1,60 @@
+@import "../../../variables.scss";
+
+.order-widget {
+    margin-top: 65px;
+
+    > * {
+        padding-top: 100px;
+    }
+
+    display: flex;
+    flex-flow: row-reverse wrap;
+
+    .order-form-container {
+        width: 60%;
+        background-color: $orderBackground;
+
+        h4,
+        h2 {
+            color: white;
+        }
+
+        .swag .swag-background {
+            background-color: $orderSwagBackground;
+        }
+
+        .form-container {
+            display: flex;
+            .column {
+                flex-grow: 1;
+            }
+            .frame-column {
+                flex-grow: 4;
+            }
+
+            .google-form-frame {
+                width: 100%;
+                min-width: 350px;
+                height: 950px;
+            }
+        }
+    }
+    
+    .order-stencil {
+        width: 40%;
+        z-index: 1;
+        margin-bottom: -5px;
+        img {
+            width: 105%;
+            margin-left: -5%;
+        }
+    }
+
+    @include phones-portrait {
+        .order-form-container,
+        .order-stencil {
+            width: 100%;
+            padding-top: 35px;
+        }
+    }
+}
