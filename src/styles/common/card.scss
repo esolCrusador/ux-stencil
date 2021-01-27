@@ -1,11 +1,19 @@
 @import "../variables.scss";
 @import "../mixins/index.scss";
 
-.cards-list {
-    margin-top: 25px;
+.cards-list,
+.cards-group {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+}
+
+.cards-list {
+    margin-top: 25px;
+
+    .cards-group {
+        flex-grow: 1;
+    }
 
     @include phones-portrait {
         margin-top: 0;

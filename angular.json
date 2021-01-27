@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": ["hammerjs"],
             "outputPath": "dist/draw-b4/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
