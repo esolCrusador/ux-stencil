@@ -68,9 +68,9 @@
             <div>
                 <div class="columns columns-2">
                     <div class="column summary-element">
-                        <a class="button primary" [href]="telegram | contactLinkPipe:ContactType.Telegram | bypassDomSecurityPipe" target="_blank">
+                        <button class="button primary" (click)="orderStencil()">
                             Order a stencil
-                        </a>
+                        </button>
                     </div>
                     <div class="column summary-element">
                         <button class="button">Lean More <i class="icon-arrow-edge"></i></button>
@@ -125,11 +125,11 @@
     <my-features-widget></my-features-widget>
 </div>
 <div id="about-block">
-    <my-about-widget [telegram]="telegram"></my-about-widget>
+    <my-about-widget [telegram]="telegram" [orderId]="orderId"></my-about-widget>
 </div>
 <div id="ux-jams-block">
     <my-ux-jams-widget  [instagramLabel]="instagramLabel" [instagram]="instagram" [uxJamsGroupLabel]="uxJamsGroupLabel" [uxJamsGroup]="uxJamsGroup"></my-ux-jams-widget>
 </div>
 <div id="order-block">
-    <my-order-widget></my-order-widget>
+    <my-order-widget [orderId]="orderId"></my-order-widget>
 </div>
