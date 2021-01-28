@@ -1,0 +1,67 @@
+<div class="footer-widget">
+    <div class="summary">
+        <div class="section">
+            <h2>
+                MOBILE
+                <span class="swag">
+                    STENCIL
+                    <span class="swag-background"></span>
+                </span>
+            </h2>
+            <br />
+            <p class="description">
+                Made to help UX designers feel the magic of pen and paper
+                <i class="icon-heart"></i>
+            </p>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="section">
+            <div class="navigation">
+                <div class="menu-container">
+                    <my-menu [active]="LandingMenu.Order" [direction]="MenuDirection.Horizontal">
+                    </my-menu>
+                </div>
+                <div class="back-to-top-container">
+                    <my-back-to-top>
+                    </my-back-to-top>
+                </div>
+            </div>
+            <div class="contacts">
+                <div>
+                </div>
+                <div class="dot-group vertical horizontal-dots small">
+                    <my-repeater cols="6" rows="3" rowClass="dot-group">
+                        <ng-template #item>
+                            <i class="dot icon-circle"></i>
+                        </ng-template>
+                    </my-repeater>
+                </div>
+                <div class="contacts-list">
+                    <my-contact-link [contact]="contacts.instagram" [contactType]="ContactType.Instagram">
+                        <my-circle-icon iconClass="icon-instagram">
+                        </my-circle-icon>
+                    </my-contact-link>
+                    &nbsp;
+                    &nbsp;
+                    <my-contact-link [contact]="contacts.telegram" [contactType]="ContactType.Telegram">
+                        <my-circle-icon iconClass="icon-telegram">
+                        </my-circle-icon>
+                    </my-contact-link>
+                    &nbsp;
+                    &nbsp;
+                    <my-contact-link [contact]="contacts.mail" [contactType]="ContactType.Mail">
+                        <my-circle-icon iconClass="icon-google">
+                        </my-circle-icon>
+                    </my-contact-link>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copy-right section">
+        <span class="copy-right-sign">
+            ©
+        </span>
+        2021 UX_STENCIL
+    </div>
+</div>

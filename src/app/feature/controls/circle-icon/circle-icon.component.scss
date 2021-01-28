@@ -1,7 +1,6 @@
 @import "../../variables.scss";
 
-my-contact-icon {
-    background-color: $activeColor;
+.circle-icon {
     font-size: 17px;
     width: 2.5em;
     height: 2.5em;
@@ -13,5 +12,13 @@ my-contact-icon {
     border-radius: 50%;
 
     text-decoration: none;
+
+    background-color: $activeColor;
     color: white;
+
+    &.inverse {
+        border: solid 1px $activeColor;
+        background-color: transparent;
+        color: $activeColor;
+    }
 }

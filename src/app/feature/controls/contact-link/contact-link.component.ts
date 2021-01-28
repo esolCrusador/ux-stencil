@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
-import { ContactType } from "./contact.pipe";
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ContactType } from './contact.pipe';
 
 @Component({
     selector: 'my-contact-link',

@@ -11,14 +11,14 @@ import * as compression from 'compression';
 import { ServerCache } from 'src/server/server-cache';
 
 const cacheDictionary = new ServerCache();
-let cache: (duration: number) => express.RequestHandler = duration => {
+const cache: (duration: number) => express.RequestHandler = duration => {
   return async (request, response, next) => {
-    let key = `response-${request.url}`;
+    const key = `response-${request.url}`;
 
     const sendResponse = response.send.bind(response);
 
     let fromCache = true;
-    let responseBody = await cacheDictionary.getOrUpdate(key, () => new Promise<string>((resolve, reject) => {
+    const responseBody = await cacheDictionary.getOrUpdate(key, () => new Promise<string>((resolve, reject) => {
       response.send = body => {
         try {
           fromCache = false;
@@ -39,10 +39,10 @@ let cache: (duration: number) => express.RequestHandler = duration => {
 
     response.set('x-from-cache', fromCache.toString());
     sendResponse(responseBody);
-  }
+  };
 };
 
-// The Express app is exported so that it can be used by serverless Functions.
+// he Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
   const distFolder = join(process.cwd(), 'dist/draw-b4/browser');

@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
-import { ContactType } from "../../../controls/contact-link/contact.pipe";
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ContactType } from '../../../controls/contact-link/contact.pipe';
+import { IContactsModel } from '../../models/i-contacts.model';
 
 
 @Component({
@@ -10,9 +11,5 @@ import { ContactType } from "../../../controls/contact-link/contact.pipe";
 export class UxJamsWidgetComponent {
     public ContactType = ContactType;
 
-    @Input() public instagramLabel: string;
-    @Input() public instagram: string;
-
-    @Input() public uxJamsGroupLabel: string;
-    @Input() public uxJamsGroup: string;
+    @Input() public contacts: IContactsModel;
 }

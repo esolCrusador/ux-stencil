@@ -50,19 +50,19 @@
                         </ng-template>
                     </my-repeater>
                 </div>
-                <div class="contacts">
-                    <my-contact-link [contact]="uxJamsGroup" [contactType]="ContactType.Telegram">
-                        <my-contact-icon iconClass="icon-telegram">
-                        </my-contact-icon>
+                <div class="contacts vertical">
+                    <my-contact-link [contact]="contacts.uxJamsGroup" [contactType]="ContactType.Telegram">
+                        <my-circle-icon iconClass="icon-telegram">
+                        </my-circle-icon>
                         &nbsp;
-                        {{ uxJamsGroupLabel }}
+                        {{ contacts.uxJamsGroupLabel }}
                     </my-contact-link>
                     <br />
-                    <my-contact-link [contact]="instagram" [contactType]="ContactType.Instagram">
-                        <my-contact-icon iconClass="icon-instagram">
-                        </my-contact-icon>
+                    <my-contact-link [contact]="contacts.instagram" [contactType]="ContactType.Instagram">
+                        <my-circle-icon iconClass="icon-instagram">
+                        </my-circle-icon>
                         &nbsp;
-                        {{ instagramLabel }}
+                        {{ contacts.instagramLabel }}
                     </my-contact-link>
                 </div>
             </div>

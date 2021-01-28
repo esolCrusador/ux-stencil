@@ -1,0 +1,70 @@
+.footer-widget {
+    margin-top: 40px;
+    justify-content: space-between;
+
+    > * {
+        width: 50%;
+        padding-top: 100px;
+    }
+
+    @include phones-portrait {
+        > * {
+            width: 100%;
+            padding-top: 35px;
+        }
+    }
+
+    background-color: white;
+
+    display: flex;
+    flex-flow: row wrap;
+
+    .summary {
+        max-width: 500px;
+    }
+
+    .copy-right.section {
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 120px;
+
+        @include phones-portrait {
+            padding-top: 40px;
+            padding-bottom: 50px;
+        }
+    }
+
+    .actions {
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .menu-container {
+                flex-grow: 4;
+            }
+
+            .back-to-top-container {
+                flex-grow: 1;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-start;
+            }
+        }
+
+        .contacts {
+            margin-top: 40px;
+
+            .contacts-list {
+                justify-content: space-between;
+                flex-grow: initial;
+            }
+
+            .horizontal-dots {
+                height: 42.5px;
+                width: 85px;
+                margin-right: 30px;
+            }
+        }
+    }
+}

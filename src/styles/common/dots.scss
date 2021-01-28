@@ -1,4 +1,4 @@
-@import '../variables.scss';
+@import "../variables.scss";
 
 .dot-group {
     display: flex;
@@ -31,5 +31,21 @@
 
     .dot {
         transform: scale(0.8, 1.35);
+    }
+}
+
+.horizontal-dots {
+    flex-grow: 4;
+    height: 60px;
+    max-width: 120px;
+
+    font-size: 7px;
+
+    &.small {
+        font-size: 5px;
+
+        .dot {
+            transform: scale(1.35, 0.8);
+        }
     }
 }

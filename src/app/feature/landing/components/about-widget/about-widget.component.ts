@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ContactType } from 'src/app/feature/controls/contact-link/contact.pipe';
-import { ScrollService } from '../../services/scroll.service';
+import { ScrollService } from '../../../controls/services/scroll.service';
+import { IContactsModel } from '../../models/i-contacts.model';
+import { LandingMenu } from '../../models/landing-menu.enum';
 
 @Component({
     selector: 'my-about-widget',
@@ -13,8 +15,7 @@ export class AboutWidgetComponent {
     public galleryPhotos = ['stencil-on-bench.png', 'drawn-prototypes.png', 'prototypes-notebook.png'].map(photoName => `assets/images/gallery/${photoName}`);
 
     @Input() public cost: string = '29.99$';
-    @Input() public telegram: string;
-    @Input() public orderId: string;
+    @Input() public contacts: IContactsModel;
 
     constructor(
         private readonly scrollService: ScrollService,
@@ -22,6 +23,6 @@ export class AboutWidgetComponent {
     }
 
     public orderStencil() {
-        this.scrollService.scrollById(this.orderId);
+        this.scrollService.scrollById(LandingMenu.Order);
     }
 }

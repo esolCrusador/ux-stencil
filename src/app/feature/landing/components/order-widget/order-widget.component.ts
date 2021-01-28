@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { LandingMenu } from '../../models/landing-menu.enum';
 
 @Component({
     selector: 'my-order-widget',
@@ -6,5 +7,6 @@ import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrderWidgetComponent {
-    @Input() public orderId: string;
+    public LandingMenu = LandingMenu;
 }
+

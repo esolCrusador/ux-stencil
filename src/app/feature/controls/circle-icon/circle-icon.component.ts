@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'my-contact-icon',
-    templateUrl: './contact-icon.component.html',
+    selector: 'my-circle-icon',
+    templateUrl: './circle-icon.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactIconComponent {
+export class CircleIconComponent {
     @Input() public iconClass: string;
+    @Input() public inverse: boolean = false;
 }

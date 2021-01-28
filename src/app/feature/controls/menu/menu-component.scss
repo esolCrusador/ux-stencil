@@ -1,0 +1,19 @@
+.menu-component {
+    display: flex;
+    line-height: 3em;
+
+    &.horizontal{
+        justify-content: space-between;
+        flex-flow: row wrap;
+        align-items: center;
+
+        @include phones-portrait {
+            flex-flow: column;
+            align-items: flex-start;
+        }
+    }
+
+    .menu-item {
+        white-space: nowrap;
+    }
+}

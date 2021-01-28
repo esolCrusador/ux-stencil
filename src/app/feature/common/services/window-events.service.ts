@@ -1,6 +1,6 @@
-import { isPlatformServer } from "@angular/common";
-import { Inject, Injectable, NgZone, PLATFORM_ID } from "@angular/core";
-import { fromEventPattern, merge, NEVER, Observable, of } from "rxjs";
+import { isPlatformServer } from '@angular/common';
+import { Inject, Injectable, NgZone, PLATFORM_ID } from '@angular/core';
+import { fromEventPattern, merge, NEVER, Observable, of } from 'rxjs';
 import { debounceTime, distinctUntilChanged, first, map, mapTo, publishReplay, refCount, share, skip } from 'rxjs/operators';
 
 export interface ISize {
@@ -59,7 +59,7 @@ export class WindowEventsService {
       return this.sizeChanges$;
 
     return merge(
-      this.sizeChanges$.pipe(first()), 
+      this.sizeChanges$.pipe(first()),
       this.sizeChanges$.pipe(skip(1), debounceTime(delay))
     );
   }

@@ -1,0 +1,15 @@
+.back-to-top {
+    cursor: pointer;
+    .circle-icon {
+        font-size: 20px;
+    }
+    overflow: visible;
+
+    .curve-line-container {
+        margin-top: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 50px;
+    }
+}

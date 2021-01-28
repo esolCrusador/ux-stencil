@@ -7,7 +7,7 @@ import { HammerGestureConfig } from '@angular/platform-browser';
 import { AppModule } from './app.module';
 
 export class MyHammerConfig extends HammerGestureConfig {
-  overrides = <any>{
+  public overrides = <any>{
     swipe: { direction: Hammer.DIRECTION_ALL }
   };
 }
