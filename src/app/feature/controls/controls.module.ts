@@ -10,10 +10,16 @@ import { MenuComponent } from './menu/menu.component';
 import { MenuProvider } from './services/menu.provider';
 import { ScrollService } from './services/scroll.service';
 import { BackToTopComponent } from './back-to-top/back-to-top.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { A11yModule } from '@angular/cdk/a11y';
 
 @NgModule({
     imports: [
         CommonModule,
+
+        A11yModule,
+        
+        MatMenuModule,
     ],
     declarations: [
         RepeaterComponent,
@@ -36,6 +42,8 @@ import { BackToTopComponent } from './back-to-top/back-to-top.component';
 
         ContactLinkPipe,
         BypassDomSecurityPipe,
+
+        MatMenuModule,
     ],
     providers: [
         MenuProvider,

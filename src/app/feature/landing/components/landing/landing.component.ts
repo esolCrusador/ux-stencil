@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { ContactType } from 'src/app/feature/controls/contact-link/contact.pipe';
 import { IMenuItemModel } from 'src/app/feature/controls/menu/i-menu-item.model';
 import { MenuProvider } from 'src/app/feature/controls/services/menu.provider';
-import { ScrollService } from '../../../controls/services/scroll.service';
 import { LandingMenu } from '../../models/landing-menu.enum';
 import { IContactsModel } from '../../models/i-contacts.model';
 
@@ -11,7 +9,6 @@ import { IContactsModel } from '../../models/i-contacts.model';
     templateUrl: './landing.component.html'
 })
 export class LandingComponent {
-    public ContactType = ContactType;
     public LandingMenu = LandingMenu;
 
     public contacts: IContactsModel = {
@@ -31,7 +28,6 @@ export class LandingComponent {
     };
 
     constructor(
-        private readonly scrollService: ScrollService,
         private readonly menuProvider: MenuProvider,
     ) {
         const menuItems: IMenuItemModel[] = Object.keys(this.menu)
@@ -40,9 +36,5 @@ export class LandingComponent {
                 return agg;
             }, [] as IMenuItemModel[]);
         this.menuProvider.setMenu(menuItems);
-    }
-
-    public orderStencil() {
-        this.scrollService.scrollById(LandingMenu.Order);
     }
 }

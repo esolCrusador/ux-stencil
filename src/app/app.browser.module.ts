@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig } from '@angular/platform-browser';
 import { AppModule } from './app.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export class MyHammerConfig extends HammerGestureConfig {
   public overrides = {
@@ -19,6 +20,7 @@ export class MyHammerConfig extends HammerGestureConfig {
   imports: [
     AppModule,
     HammerModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig },

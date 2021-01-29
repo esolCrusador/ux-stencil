@@ -9,11 +9,16 @@
             justify-content: space-between;
             align-items: center;
             flex-flow: row;
+
+            .menu-item {
+                padding-left: 0;
+            }
         }
     }
 
     .menu-item {
         white-space: nowrap;
         padding-right: 1em;
+        padding-left: 1em;
     }
 }

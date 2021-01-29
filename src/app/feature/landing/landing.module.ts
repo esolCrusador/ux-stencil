@@ -6,6 +6,7 @@ import { AboutWidgetComponent } from './components/about-widget/about-widget.com
 import { UxJamsWidgetComponent } from './components/ux-jams-widget/ux-jams-widget.component';
 import { OrderWidgetComponent } from './components/order-widget/order-widget.component';
 import { FooterWidgetComponent } from './components/footer-widget/footer-widget.component';
+import { TopBlockWidgetComponent } from './components/top-block-widget/top-block-widget.component';
 
 @NgModule({
     imports: [ControlsModule],
@@ -17,6 +18,7 @@ import { FooterWidgetComponent } from './components/footer-widget/footer-widget.
         UxJamsWidgetComponent,
         OrderWidgetComponent,
         FooterWidgetComponent,
+        TopBlockWidgetComponent,
     ],
     exports: [LandingComponent],
     providers: [
