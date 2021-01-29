@@ -1,23 +1,19 @@
-import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 
 @Injectable()
 export class ScrollService {
     constructor(
-        @Inject(DOCUMENT) private readonly document: Document,
+        private readonly ngAnimateScrollService: NgAnimateScrollService,
     ) {
 
     }
 
     public scrollById(elementId: string): void {
-        const element = this.document.getElementById(elementId);
-
-        element.scrollIntoView({ behavior: 'smooth' });
+        this.ngAnimateScrollService.scrollToElement(elementId, 500);
     }
 
     public scrollToTop(): void {
-        const element = this.document.body;
-
-        element.scrollIntoView({ behavior: 'smooth' });
+        this.ngAnimateScrollService.scrollToElement('main-content', 500);
     }
 }

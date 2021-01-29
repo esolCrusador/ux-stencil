@@ -1215,6 +1215,11 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/hammerjs@2.0.35":
+  version "2.0.35"
+  resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.35.tgz#7b7c950c7d54593e23bffc8d2b4feba9866a7277"
+  integrity sha512-4mUIMSZ2U4UOWq1b+iV7XUTE4w+Kr3x+Zb/Qz5ROO6BTZLw2c8/ftjq0aRgluguLs4KRuBnrOy/s389HVn1/zA==
+
 "@types/http-proxy@^1.17.4":
   version "1.17.4"
   resolved "https://registry.yarnpkg.com/@types/http-proxy/-/http-proxy-1.17.4.tgz#e7c92e3dbe3e13aa799440ff42e6d3a17a9d045b"
@@ -6214,6 +6219,13 @@ next-tick@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
+
+ng-animate-scroll@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/ng-animate-scroll/-/ng-animate-scroll-7.1.0.tgz#5a83308aa7fa9d2aa814fe5e86f87d109fb809fc"
+  integrity sha512-qKCu8N6R80XppvFn3siL0DVZrVyjNjYmSUtQEF+4WgzP8LpV8Pg0Af21tiBVCxluzSUtSS3NJRjMMOhv0ju8Ew==
+  dependencies:
+    tslib "^1.9.0"
 
 nice-try@^1.0.4:
   version "1.0.5"
