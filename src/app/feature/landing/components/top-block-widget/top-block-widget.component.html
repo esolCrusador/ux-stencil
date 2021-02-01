@@ -1,13 +1,4 @@
 <div class="top-block container background-container">
-    <div class="background">
-        <img src="assets/images/landing/main-background.jpg" />
-
-        <div id="made-in">
-            <div>
-                Made in Belarus
-            </div>
-        </div>
-    </div>
     <div class="menu-selector" [matMenuTriggerFor]="menu" (menuOpened)="onMenuOpened(true)" (menuClosed)="onMenuOpened(false)" [class.is-opened]="isMenuOpened">
         <div>
             <i [class.icon-menu-container]="!isMenuOpened">
@@ -48,6 +39,15 @@
                         </i>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="background">
+        <img src="assets/images/landing/main-background.jpg" />
+
+        <div id="made-in">
+            <div>
+                Made in Belarus
             </div>
         </div>
     </div>
