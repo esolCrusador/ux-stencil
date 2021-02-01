@@ -12,6 +12,7 @@ import { ScrollService } from './services/scroll.service';
 import { BackToTopComponent } from './back-to-top/back-to-top.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { A11yModule } from '@angular/cdk/a11y';
+import { TopImageWrapperComponent } from './top-image-wrapper/top-image-wrapper.component';
 
 @NgModule({
     imports: [
@@ -28,6 +29,7 @@ import { A11yModule } from '@angular/cdk/a11y';
         ContactLinkComponent,
         MenuComponent,
         BackToTopComponent,
+        TopImageWrapperComponent,
 
         ContactLinkPipe,
         BypassDomSecurityPipe,
@@ -39,6 +41,7 @@ import { A11yModule } from '@angular/cdk/a11y';
         ContactLinkComponent,
         MenuComponent,
         BackToTopComponent,
+        TopImageWrapperComponent,
 
         ContactLinkPipe,
         BypassDomSecurityPipe,
