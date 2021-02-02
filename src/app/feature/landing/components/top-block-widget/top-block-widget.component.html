@@ -26,18 +26,25 @@
             </div>
             <div style="position: relative; padding: 33.5%; margin-bottom: 67%;">
                 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 200%;">
-                    <my-top-image-wrapper [image]="images[0]"></my-top-image-wrapper>
-                    <div id="photo-selector">
-                        <i id="photo-selector-icon" class="icon-photo-selector">
-                            <div class="dot-group vertical">
-                                <my-repeater rows="4" rowClass="dot">
-                                    <ng-template #item let-row="row" let-col="col">
-                                        <i [class.icon-circle]="row === 0" [class.icon-empty-circle]="row > 0"></i>
-                                    </ng-template>
-                                </my-repeater>
+                    <my-photo-slider [photos]="images" [controlsBottom]="true">
+                        <ng-template #itemTemplate let-image="image">
+                            <my-top-image-wrapper [image]="image"></my-top-image-wrapper>
+                        </ng-template>
+                        <ng-template #itemControlsTemplate let-previous="previous" let-next="next" let-index="index" let-selectIndex="selectIndex">
+                            <div id="photo-selector" (click)="next()">
+                                <i id="photo-selector-icon" class="icon-photo-selector">
+                                    <div class="dot-group vertical">
+                                        <my-repeater rows="4" rowClass="dot">
+                                            <ng-template #item let-row="row" let-col="col">
+                                                <i (click)="$event.stopPropagation(); selectIndex(row);" [class.icon-circle]="row === index" [class.icon-empty-circle]="row !== index"></i>
+                                            </ng-template>
+                                        </my-repeater>
+                                    </div>
+                                </i>
                             </div>
-                        </i>
-                    </div>
+                        </ng-template>
+                    </my-photo-slider>
+
                 </div>
             </div>
         </div>
