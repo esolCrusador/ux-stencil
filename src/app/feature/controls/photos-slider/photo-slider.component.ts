@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { IImageModel } from '../../images-gallery/models/i-image.model';
 
 @Component({
     selector: 'my-photo-slider',
@@ -7,9 +8,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class PhotoSliderComponent {
     private currentIndex: number = 0;
-    private _photos: string[];
+    private _photos: IImageModel[];
 
-    @Input() public set photos(value: string[]) {
+    @Input() public set photos(value: IImageModel[]) {
         this._photos = value;
         this.currentIndex = 0;
     }
@@ -20,7 +21,7 @@ export class PhotoSliderComponent {
         return this._photos;
     }
 
-    public get currentImage(): string {
+    public get currentImage(): IImageModel {
         return this.photos[this.currentIndex];
     }
 

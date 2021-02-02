@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import { IImageModel } from "../../images-gallery/models/i-image.model";
 
 @Component({
     selector: 'my-top-image-wrapper',
@@ -6,5 +7,5 @@ import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TopImageWrapperComponent {
-    @Input() public imageUrl: string;
+    @Input() public image: IImageModel;
 }
