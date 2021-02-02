@@ -11,5 +11,13 @@
   ],
   "include": [
     "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "**/*.fake.ts",
+    "**/*.test-helper.ts",
+    "**/*.test-data.ts",
+    "app/test/extensions/**/*.*"
   ]
 }

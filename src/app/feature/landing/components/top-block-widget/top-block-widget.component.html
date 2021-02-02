@@ -36,7 +36,7 @@
                                     <div class="dot-group vertical">
                                         <my-repeater rows="4" rowClass="dot">
                                             <ng-template #item let-row="row" let-col="col">
-                                                <i (click)="$event.stopPropagation(); selectIndex(row);" [class.icon-circle]="row === index" [class.icon-empty-circle]="row !== index"></i>
+                                                <i [class.icon-circle]="row === index" [class.icon-empty-circle]="row !== index"></i>
                                             </ng-template>
                                         </my-repeater>
                                     </div>

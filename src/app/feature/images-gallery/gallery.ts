@@ -1,4 +1,4 @@
-import { GalleryImage } from "./gallery-image.enum";
+import { GalleryImage } from './gallery-image.enum';
 import { IImageModel } from './models/i-image.model';
 
 type GalleryImagesMap = { [key in keyof typeof GalleryImage]: IImageModel };

@@ -14,7 +14,7 @@ import { LandingMenu } from '../../models/landing-menu.enum';
 export class AboutWidgetComponent {
     public ContactType = ContactType;
 
-    public galleryPhotos = [Gallery[GalleryImage.StencilOnBench], Gallery[GalleryImage.PrototypeNotebook]];
+    public galleryPhotos = [Gallery[GalleryImage.StencilOnBench], Gallery[GalleryImage.StencilOnTable]];
 
     @Input() public cost: string = '29.99$';
     @Input() public contacts: IContactsModel;

@@ -1,6 +1,6 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "./tsconfig.app.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./out-tsc/server",
     "target": "es2016",
@@ -11,6 +11,14 @@
   "files": [
     "src/main.server.ts",
     "server.ts"
+  ],
+  "exclude": [
+    "**/*.browser.*.ts",
+    "**/*.browser.ts",
+    "**/browser/**",
+    "test.ts",
+    "polyfills.ts",
+    "**/*.spec.ts"
   ],
   "angularCompilerOptions": {
     "entryModule": "./src/app/app.server.module#AppServerModule"
