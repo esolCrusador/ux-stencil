@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ContactType } from 'src/app/feature/controls/contact-link/contact.pipe';
+import { Gallery } from 'src/app/feature/images-gallery/gallery';
+import { GalleryImage } from 'src/app/feature/images-gallery/gallery-image.enum';
 import { ScrollService } from '../../../controls/services/scroll.service';
 import { IContactsModel } from '../../models/i-contacts.model';
 import { LandingMenu } from '../../models/landing-menu.enum';
@@ -12,7 +14,7 @@ import { LandingMenu } from '../../models/landing-menu.enum';
 export class AboutWidgetComponent {
     public ContactType = ContactType;
 
-    public galleryPhotos = ['stencil-on-bench.jpg', 'prototypes-notebook.jpg'].map(photoName => `assets/images/gallery/${photoName}`);
+    public galleryPhotos = [Gallery[GalleryImage.StencilOnBench], Gallery[GalleryImage.StencilOnTable]];
 
     @Input() public cost: string = '29.99$';
     @Input() public contacts: IContactsModel;

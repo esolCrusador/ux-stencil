@@ -1,11 +1,17 @@
 <div class="photo-slider" (swipeleft)="previous()" (swiperight)="next()">
-    <div class="slider-controls">
-        <div class="arrow left" (click)="previous()">
-            <i class="icon-arrow"></i>
-        </div>
-        <div class="arrow right" (click)="next()">
-            <i class="icon-arrow"></i>
-        </div>
+    <ng-content *ngTemplateOutlet="itemTemplate || defaultItemTemplate; context: { image: currentImage }"></ng-content>
+    <div class="slider-controls" [class.bottom]="controlsBottom">
+        <ng-content *ngTemplateOutlet="itemControlsTemplate || defaultItemControlsTemplate; context: { previous: previousDelegate, next: nextDelegate, index: currentIndex, selectIndex: selectIndexDelegate }"></ng-content>
     </div>
-    <img [src]="currentImage" />
 </div>
+<ng-template #defaultItemTemplate let-image="image">
+    <img [src]="image.url" [alt]="image.description" />
+</ng-template>
+<ng-template #defaultItemControlsTemplate let-previous="previous" let-next="next">
+    <div class="arrow left" (click)="previous()">
+        <i class="icon-arrow"></i>
+    </div>
+    <div class="arrow right" (click)="next()">
+        <i class="icon-arrow"></i>
+    </div>
+</ng-template>

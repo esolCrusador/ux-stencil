@@ -13,7 +13,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["hammerjs"],
+            "allowedCommonJsDependencies": [
+              "hammerjs"
+            ],
             "outputPath": "dist/draw-b4/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -25,7 +27,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              {
+                "input": "src/styles.scss",
+                "lazy": false
+              }
             ],
             "scripts": []
           },
@@ -45,6 +50,12 @@
               "extractLicenses": true,
               "vendorChunk": true,
               "buildOptimizer": true,
+              "styles": [
+                {
+                  "input": "src/styles.scss",
+                  "lazy": true
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",

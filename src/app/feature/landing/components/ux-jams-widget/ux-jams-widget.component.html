@@ -1,7 +1,7 @@
 <div class="my-ux-jams-widget">
     <div class="photos-block">
         <div class="photos-galery">
-            <my-photo-slider [photos]="['assets/images/gallery/prototypes-notebook.jpg', 'assets/images/gallery/drawn-prototypes.jpg']"></my-photo-slider>
+            <my-photo-slider [photos]="[prototypeNotebookImage, drawnPrototypeImage]"></my-photo-slider>
         </div>
         <div class="actions-board">
             <div class="share">
@@ -9,14 +9,14 @@
                     <i class="icon-share"></i>
                 </div>
                 <div class="photo-container">
-                    <img src="assets/images/gallery/prototypes-notebook.jpg" />
+                    <img [src]="prototypeNotebookImage.url" [alt]="prototypeNotebookImage.description" />
                 </div>
             </div>
             <br />
             <br />
             <div class="schedule">
                 <div class="photo-container">
-                    <img src="assets/images/gallery/drawn-prototypes.jpg" />
+                    <img [src]="drawnPrototypeImage.url" [alt]="drawnPrototypeImage.description" />
                 </div>
                 <div class="calendar icon-container">
                     <i class="icon-calendar"></i>
@@ -34,7 +34,7 @@
                 <br />
                 &nbsp;
                 <span class="swag">
-                    Design Jams    
+                    Design Jams
                     <span class="swag-background"></span>
                 </span>
             </h2>

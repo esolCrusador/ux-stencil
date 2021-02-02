@@ -19,7 +19,7 @@ import { TopImageWrapperComponent } from './top-image-wrapper/top-image-wrapper.
         CommonModule,
 
         A11yModule,
-        
+
         MatMenuModule,
     ],
     declarations: [
@@ -35,6 +35,8 @@ import { TopImageWrapperComponent } from './top-image-wrapper/top-image-wrapper.
         BypassDomSecurityPipe,
     ],
     exports: [
+        CommonModule,
+
         RepeaterComponent,
         CircleIconComponent,
         PhotoSliderComponent,

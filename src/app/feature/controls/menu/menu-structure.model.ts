@@ -7,7 +7,7 @@ export class MenuStructureModel {
     public get active(): string {
         if (this.activeIndex === -1)
             return null;
-            
+
         return this.items[this.activeIndex].id;
     }
     public set active(value: string) {

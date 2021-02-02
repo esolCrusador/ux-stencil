@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ContentChild, Input, TemplateRef } from '@angular/core';
+import { IImageModel } from '../../images-gallery/models/i-image.model';
 
 @Component({
     selector: 'my-photo-slider',
@@ -6,10 +7,14 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PhotoSliderComponent {
-    private currentIndex: number = 0;
-    private _photos: string[];
+    private _photos: IImageModel[];
 
-    @Input() public set photos(value: string[]) {
+    public currentIndex: number = 0;
+    public previousDelegate = this.previous.bind(this);
+    public nextDelegate = this.next.bind(this);
+    public selectIndexDelegate = this.selectIndex.bind(this);
+
+    @Input() public set photos(value: IImageModel[]) {
         this._photos = value;
         this.currentIndex = 0;
     }
@@ -20,25 +25,43 @@ export class PhotoSliderComponent {
         return this._photos;
     }
 
-    public get currentImage(): string {
+    @Input() public controlsBottom: boolean = false;
+
+    @ContentChild('itemTemplate', { static: false })
+    public itemTemplate: TemplateRef<{ item: IImageModel }>;
+    @ContentChild('itemControlsTemplate', { static: false })
+    public itemControlsTemplate: TemplateRef<{ previous: () => void, next: () => void, index: number }>;
+
+    public get currentImage(): IImageModel {
         return this.photos[this.currentIndex];
     }
 
+    constructor(
+    ) {
+
+    }
+
     public previous(): void {
-        this.currentIndex--;
-        this.handleIndexBounds();
+        this.changeIndex(index => index - 1);
     }
 
     public next(): void {
-        this.currentIndex++;
-        this.handleIndexBounds();
+        this.changeIndex(index => index + 1);
     }
 
-    private handleIndexBounds(): void {
-        const photosLength = this.photos.length;
-        if (this.currentIndex >= 0 && this.currentIndex < photosLength)
-            return;
+    public selectIndex(index: number): void {
+        this.changeIndex(() => index);
+    }
 
-        this.currentIndex = (this.currentIndex + photosLength) % photosLength;
+    private changeIndex(change: (index: number) => number): void {
+        this.currentIndex = this.handleIndexBounds(change(this.currentIndex));
+    }
+
+    private handleIndexBounds(index: number): number {
+        const photosLength = this.photos.length;
+        if (index >= 0 && index < photosLength)
+            return index;
+
+        return (index + photosLength) % photosLength;
     }
 }
