@@ -6,41 +6,11 @@ import { join } from 'path';
 
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
-import { existsSync } from 'fs';
 import * as compression from 'compression';
-import { ServerCache } from 'src/server/server-cache';
+import { compiledResponseHandler } from 'src/server/compiled-response.server.handler';
+import { cacheHandler } from 'src/server/cache.server.handler';
+import { existsSync } from 'fs';
 
-const cacheDictionary = new ServerCache();
-const cache: (duration: number) => express.RequestHandler = duration => {
-  return async (request, response, next) => {
-    const key = `response-${request.url}`;
-
-    const sendResponse = response.send.bind(response);
-
-    let fromCache = true;
-    const responseBody = await cacheDictionary.getOrUpdate(key, () => new Promise<string>((resolve, reject) => {
-      response.send = body => {
-        try {
-          fromCache = false;
-          resolve(body);
-        } catch (ex) {
-          reject(ex);
-        }
-
-        return body;
-      };
-
-      try {
-        next();
-      } catch (ex) {
-        reject(ex);
-      }
-    }), duration, duration / 10);
-
-    response.set('x-from-cache', fromCache.toString());
-    sendResponse(responseBody);
-  };
-};
 
 // he Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -62,11 +32,11 @@ export function app(): express.Express {
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {
-    maxAge: '1y'
+    maxAge: '1y',
   }));
 
   // All regular routes use the Universal engine
-  server.get('*', cache(5 * 60 * 1000), (req, res) => {
+  server.get('*', cacheHandler(5 * 60 * 1000) , compiledResponseHandler(join(distFolder, 'index.compiled.html')), (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 
