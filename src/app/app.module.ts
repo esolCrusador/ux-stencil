@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LandingModule } from './feature/landing/landing.module';
 import { ControlsModule } from './feature/controls/controls.module';
 import { CommonServicesModule } from './feature/common/services/common-services.module';
+import { ConfigurationModule } from './feature/configuration/configuration.module';
+import { AnalyticsModule } from './feature/analytics/analytics.module';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { CommonServicesModule } from './feature/common/services/common-services.
     AppRoutingModule,
     ControlsModule,
     LandingModule,
+    ConfigurationModule,
+    AnalyticsModule,
 
     CommonServicesModule,
   ],

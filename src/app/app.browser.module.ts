@@ -6,6 +6,7 @@ import * as Hammer from 'hammerjs';
 import { HammerGestureConfig } from '@angular/platform-browser';
 import { AppModule } from './app.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GoogleAnalyticsBrowserModule } from './feature/analytics/browser/google-analytics.browser.module';
 
 @Injectable()
 export class MyHammerConfig extends HammerGestureConfig {
@@ -22,6 +23,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     AppModule,
     HammerModule,
     BrowserAnimationsModule,
+    
+    GoogleAnalyticsBrowserModule,
   ],
   providers: [
     { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig },
