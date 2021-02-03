@@ -13,9 +13,9 @@ export class ConfigurationService {
     public get googleAnalyticsId(): string {
         switch (this.hostingEvnironmentResolver.getHostingEnvironment()) {
             case HostingEnvironment.Production:
-                return '259963757';
+                return 'UA-71204716-1';
             default:
-                return '259963757'; //TODO Remove
+                return null;
         }
     }
 }

@@ -1,1 +1,1 @@
-deployment\yarn.cmd && deployment\yarn-install.cmd && deployment\build.cmd && deployment\deploy.cmd ftp://ftp-eu.site4now.net ftp-uploader FHLCDeb7lwuWjqJLwjYxaelwEddPC9eT8vdiBmGemrnMjC7quyDuXe4lQxFu
+deployment\yarn.cmd && deployment\yarn-install.cmd && deployment\build.cmd && deployment\deploy.cmd ftp://ftp-eu.site4now.net ftp-uploader FHLCDeb7lwuWjqJLwjYxaelwEddPC9eT8vdiBmGemrnMjC7quyDuXe4lQxFu && start http://ux-stencil.net || deploy.smarterasp.cmd

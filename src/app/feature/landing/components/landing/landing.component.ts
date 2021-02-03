@@ -41,6 +41,6 @@ export class LandingComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.analyticsService.trackPageView('Landing', '/');
+        this.analyticsService.trackPageView('Landing');
     }
 }
