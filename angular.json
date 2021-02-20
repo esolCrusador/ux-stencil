@@ -17,7 +17,7 @@
               "hammerjs"
             ],
             "outputPath": "dist/draw-b4/browser",
-            "index": "src/index.html",
+            "index": "src/index.original.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
