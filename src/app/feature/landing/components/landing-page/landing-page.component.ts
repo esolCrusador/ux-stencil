@@ -50,6 +50,11 @@ export class LandingComponent implements OnInit {
     }
 
     private setupSeo() {
-        this.seoService.update('UX/UI Stencil', 'UX/UI Stencil for sketching and prototyping', Gallery[GalleryImage.MainPhoto].url);
+        this.seoService.update(
+            'UX/UI Stencil', 
+            'UX/UI Stencil for sketching and prototyping', 
+            Gallery[GalleryImage.MainPhoto].url,
+            Gallery[GalleryImage.MainBackground].url
+        );
     }
 }

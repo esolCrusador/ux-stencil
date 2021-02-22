@@ -22,6 +22,7 @@ export class TopBlockWidgetComponent {
         Gallery[GalleryImage.MainPhoto],
         Gallery[GalleryImage.DrawingSample]
     ];
+    public background: IImageModel = Gallery[GalleryImage.MainBackground];
 
     constructor(
         private readonly scrollService: ScrollService,
