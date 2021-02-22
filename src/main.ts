@@ -6,7 +6,11 @@ import { AppBrowserModule } from './app/app.browser.module';
 import { environment } from './environments/environment';
 
 export function getBaseUrl() {
-  return document.getElementsByTagName('base')[0].href;
+  let href = document.getElementsByTagName('base')[0].href;
+  if (href.endsWith('/'))
+    href = href.substring(0, href.length - 1);
+
+  return href;
 }
 
 const providers = [
@@ -19,5 +23,5 @@ if (environment.production) {
 
 document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic(providers).bootstrapModule(AppBrowserModule)
-  .catch(err => console.error(err));
+    .catch(err => console.error(err));
 });

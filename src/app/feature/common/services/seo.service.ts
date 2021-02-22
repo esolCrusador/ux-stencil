@@ -10,7 +10,7 @@ export class SeoService {
         private readonly jsonLdService: JsonLdService,
         @Inject(APP_BASE_HREF) baseUrl: string
     ) {
-        this.host = new URL(baseUrl).origin;
+        this.host = baseUrl;
     }
 
     public update(title: string, description: string, image: string): void {
