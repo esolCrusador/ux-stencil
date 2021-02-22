@@ -2,6 +2,8 @@ import { R_OK } from "constants";
 import { RequestHandler } from "express";
 import { access, writeFile } from "fs";
 
+type CompiledResponseHandler = (compiledHtmlPath: string) => RequestHandler;
+
 const existsAsync = (path: string) => new Promise<boolean>(resolve =>
   access(path, R_OK, (error => error ? resolve(false) : resolve(true)))
 );
@@ -9,13 +11,15 @@ const writeFileAsync = (path: string, body: any) => new Promise<void>((resolve, 
   writeFile(path, body, error => error ? reject(error) : resolve())
 );
 
-export const compiledResponseHandler: (compiledHtml: string) => RequestHandler = compiledHtml => async (request, response, next) => {
-  console.debug('CompiledHtml', compiledHtml);
-  if (!await existsAsync(compiledHtml)) {
+export const compiledResponseHandler: CompiledResponseHandler = (compiledHtmlPath) => async (request, response, next) => {
+  console.debug('CompiledHtml', compiledHtmlPath);
+  const forceReload = request.query['force-reload'] === 'true';
+  
+  if (forceReload || !await existsAsync(compiledHtmlPath)) {
     const sendResponse = response.send.bind(response);
 
     response.send = body => {
-      writeFileAsync(compiledHtml, body)
+      writeFileAsync(compiledHtmlPath, body)
         .then(() => console.debug('File saved successfuly'))
         .catch(error => console.error(error));
 
@@ -27,6 +31,6 @@ export const compiledResponseHandler: (compiledHtml: string) => RequestHandler =
     return;
   }
 
-  console.debug('Returning File', compiledHtml);
-  response.sendFile(compiledHtml);
+  console.debug('Returning File', compiledHtmlPath);
+  response.sendFile(compiledHtmlPath);
 }
