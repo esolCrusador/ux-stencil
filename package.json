@@ -28,6 +28,7 @@
     "@angular/cdk": "~10.2.7",
     "@angular/material": "~10.2.7",
     "@nguniversal/express-engine": "^10.0.2",
+    "@types/google.analytics": "0.0.41",
     "ng-animate-scroll": "7.1.0",
     "express": "^4.15.2",
     "rxjs": "~6.5.5",

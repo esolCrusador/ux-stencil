@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IMenuItemModel } from 'src/app/feature/controls/menu/i-menu-item.model';
 import { MenuProvider } from 'src/app/feature/controls/services/menu.provider';
 import { LandingMenu } from '../../models/landing-menu.enum';
 import { IContactsModel } from '../../models/i-contacts.model';
+import { IAnalyticsService } from 'src/app/feature/analytics/i-analytics.service';
 
 @Component({
     selector: 'app-landing',
     templateUrl: './landing.component.html'
 })
-export class LandingComponent {
+export class LandingComponent implements OnInit {
     public LandingMenu = LandingMenu;
 
     public contacts: IContactsModel = {
@@ -29,12 +30,17 @@ export class LandingComponent {
 
     constructor(
         private readonly menuProvider: MenuProvider,
+        private readonly analyticsService: IAnalyticsService,
     ) {
         const menuItems: IMenuItemModel[] = Object.keys(this.menu)
             .reduce((agg, itemId: keyof typeof LandingMenu) => {
-                agg.push({id: LandingMenu[itemId], title: this.menu[itemId]});
+                agg.push({ id: LandingMenu[itemId], title: this.menu[itemId] });
                 return agg;
             }, [] as IMenuItemModel[]);
         this.menuProvider.setMenu(menuItems);
+    }
+
+    public ngOnInit(): void {
+        this.analyticsService.trackPageView('Landing');
     }
 }
