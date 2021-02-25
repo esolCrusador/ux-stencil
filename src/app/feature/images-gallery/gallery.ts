@@ -5,13 +5,14 @@ type GalleryImagesMap = { [key in keyof typeof GalleryImage]: IImageModel };
 type GalleryImages = { [key in GalleryImage]: IImageModel };
 
 const galleryImagesMap: GalleryImagesMap = {
-    MainPhoto: { url: 'main-photo.jpg', description: 'UX Stencil photo' },
-    DrawingSample: { url: 'drawing-sample.jpg', description: 'UX Stencil drawing sample' },
-    DrawnPrototype: { url: 'drawn-prototypes.jpg', description: 'UX Stencil drawn prototypes' },
-    StencilOnTable: { url: 'stencil-on-table.jpg', description: 'UX Stencil on a table' },
-    StencilOnBench: { url: 'stencil-on-bench.jpg', description: 'UX Stencil on a banch' },
+    MainPhoto: { url: 'main-photo.jpg', description: 'UX/UI Stencil photo' },
+    MainBackground: { url: 'main-background.jpg', description: 'UX/UI Stencil photo' },
+    DrawingSample: { url: 'drawing-sample.jpg', description: 'UX/UI Stencil drawing sample' },
+    DrawnPrototype: { url: 'drawn-prototypes.jpg', description: 'UX/UI Stencil drawn prototypes' },
+    StencilOnTable: { url: 'stencil-on-table.jpg', description: 'UX/UI Stencil on a table' },
+    StencilOnBench: { url: 'stencil-on-bench.jpg', description: 'UX/UI Stencil on a banch' },
     PrototypeNotebook: { url: 'prototypes-notebook.jpg', description: 'Notebook and tools' },
-    OrderStencil: { url: 'order-stencil.jpg', description: 'UX Stencil' }
+    OrderStencil: { url: 'order-stencil.jpg', description: 'UX/UI Stencil' }
 };
 
 const keys = Object.keys(galleryImagesMap) as Array<keyof typeof GalleryImage>;

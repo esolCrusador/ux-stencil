@@ -14,7 +14,7 @@ export class HostingEnvironmentResolver {
 
     public get host(): string {
         if (!this._host)
-            this._host = new URL(this.baseUrl).origin;
+            this._host = this.baseUrl;
 
         return this._host;
     }

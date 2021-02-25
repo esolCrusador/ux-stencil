@@ -1,5 +1,6 @@
 export enum GalleryImage {
     MainPhoto,
+    MainBackground,
     DrawingSample,
     StencilOnBench,
     PrototypeNotebook,

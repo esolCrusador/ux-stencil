@@ -4,10 +4,13 @@ import { MenuProvider } from 'src/app/feature/controls/services/menu.provider';
 import { LandingMenu } from '../../models/landing-menu.enum';
 import { IContactsModel } from '../../models/i-contacts.model';
 import { IAnalyticsService } from 'src/app/feature/analytics/i-analytics.service';
+import { Gallery } from 'src/app/feature/images-gallery/gallery';
+import { GalleryImage } from 'src/app/feature/images-gallery/gallery-image.enum';
+import { SeoService } from 'src/app/feature/common/services/seo.service';
 
 @Component({
     selector: 'app-landing',
-    templateUrl: './landing.component.html'
+    templateUrl: './landing-page.component.html'
 })
 export class LandingComponent implements OnInit {
     public LandingMenu = LandingMenu;
@@ -31,6 +34,7 @@ export class LandingComponent implements OnInit {
     constructor(
         private readonly menuProvider: MenuProvider,
         private readonly analyticsService: IAnalyticsService,
+        private readonly seoService: SeoService,
     ) {
         const menuItems: IMenuItemModel[] = Object.keys(this.menu)
             .reduce((agg, itemId: keyof typeof LandingMenu) => {
@@ -42,5 +46,15 @@ export class LandingComponent implements OnInit {
 
     public ngOnInit(): void {
         this.analyticsService.trackPageView('Landing');
+        this.setupSeo();
+    }
+
+    private setupSeo() {
+        this.seoService.update(
+            'UX/UI Stencil', 
+            'UX/UI Stencil for sketching and prototyping', 
+            Gallery[GalleryImage.MainPhoto].url,
+            Gallery[GalleryImage.MainBackground].url
+        );
     }
 }

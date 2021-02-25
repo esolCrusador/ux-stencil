@@ -8,7 +8,6 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import * as compression from 'compression';
 import { compiledResponseHandler } from 'src/server/compiled-response.server.handler';
-import { cacheHandler } from 'src/server/cache.server.handler';
 import { existsSync } from 'fs';
 
 
@@ -35,8 +34,20 @@ export function app(): express.Express {
     maxAge: '1y',
   }));
 
+  server.use((request, response, next) => {
+    if(!request.baseUrl){
+      const protocol = request.header('X-Forwarded-Proto') || request.protocol;
+      const host = request.header('Host');
+
+      request.baseUrl = `${protocol}://${host}`;
+    }
+    console.debug('Base Url', request.baseUrl);
+    
+    next();
+  });
+
   // All regular routes use the Universal engine
-  server.get('*', cacheHandler(5 * 60 * 1000) , compiledResponseHandler(join(distFolder, 'index.html')), (req, res) => {
+  server.get('*' , compiledResponseHandler(join(distFolder, 'index.html')), (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 

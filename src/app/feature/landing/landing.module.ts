@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { LandingComponent } from './components/landing/landing.component';
+import { LandingComponent } from './components/landing-page/landing-page.component';
 import { ControlsModule } from '../controls/controls.module';
 import { FeaturesWidgetComponent } from './components/features-widget/features-widget.component';
 import { AboutWidgetComponent } from './components/about-widget/about-widget.component';
