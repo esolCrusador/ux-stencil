@@ -28,6 +28,13 @@ export class SeoService {
         const product = this.jsonLdService.getObject('Product', {
             name: title,
             description: description,
+            sku: 'iphone-x-stencil',
+            brand: 'UX Stencils',
+            offers: this.jsonLdService.getObject('Offer', {
+                price: '29.99',
+                priceCurrency: 'USD',
+                availability: 'http://schema.org/PreOrder'
+            }),
             image: image, audience: this.jsonLdService.getObject('Audience',
                 { name: 'UX/UI Designers, Developers' }
             )
