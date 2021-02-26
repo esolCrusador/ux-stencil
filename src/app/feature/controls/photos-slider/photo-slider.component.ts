@@ -26,7 +26,11 @@ export class PhotoSliderComponent {
     }
 
     @Input() public controlsBottom: boolean = false;
+    @Input() public set lazyImages(value: boolean) {
+        this.loading = value ? 'lazy' : 'eager';
+    }
 
+    public loading: 'auto' | 'eager' | 'lazy' = 'auto';
     @ContentChild('itemTemplate', { static: false })
     public itemTemplate: TemplateRef<{ item: IImageModel }>;
     @ContentChild('itemControlsTemplate', { static: false })

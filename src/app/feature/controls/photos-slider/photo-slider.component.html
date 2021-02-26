@@ -5,7 +5,7 @@
     </div>
 </div>
 <ng-template #defaultItemTemplate let-image="image">
-    <img [src]="image.url" [alt]="image.description" />
+    <img [src]="image.url" loading="lazy" [alt]="image.description" />
 </ng-template>
 <ng-template #defaultItemControlsTemplate let-previous="previous" let-next="next">
     <div class="arrow left" (click)="previous()">
