@@ -25,7 +25,8 @@
             "assets": [
               { "glob": "favicon.*", "input": "src/assets/icons", "output": "/" },
               "src/assets/images",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/sitemap.xml"
             ],
             "styles": [
               {
