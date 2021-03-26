@@ -30,14 +30,19 @@ export class SeoService {
             description: description,
             sku: 'iphone-x-stencil',
             brand: 'UX Stencils',
+            url: this.host,
             offers: this.jsonLdService.getObject('Offer', {
-                price: '29.99',
-                priceCurrency: 'USD',
-                availability: 'http://schema.org/PreOrder'
-            }),
-            image: image, audience: this.jsonLdService.getObject('Audience',
-                { name: 'UX/UI Designers, Developers' }
-            )
+                    price: '29.99',
+                    priceValidUntil: '2021-07-31',
+                    priceCurrency: 'USD',
+                    url: this.host,
+                    availability: 'http://schema.org/PreOrder'
+                }),
+            image: image,
+            audience: this.jsonLdService.getObject('Audience',
+                {
+                    name: 'UX/UI Designers, Developers'
+                })
         });
         this.jsonLdService.setData(product)
     }
