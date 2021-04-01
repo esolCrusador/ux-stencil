@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'draw-b4';
-  src:  url('~/fonts/draw-b4.eot?a8uv55');
-  src:  url('~/fonts/draw-b4.eot?a8uv55#iefix') format('embedded-opentype'),
-    url('~/fonts/draw-b4.ttf?a8uv55') format('truetype'),
-    url('~/fonts/draw-b4.woff?a8uv55') format('woff'),
-    url('~/fonts/draw-b4.svg?a8uv55#draw-b4') format('svg');
+  font-family: 'ux-stencil';
+  src:  url('~/fonts/ux-stencil.eot?a8uv55');
+  src:  url('~/fonts/ux-stencil.eot?a8uv55#iefix') format('embedded-opentype'),
+    url('~/fonts/ux-stencil.ttf?a8uv55') format('truetype'),
+    url('~/fonts/ux-stencil.woff?a8uv55') format('woff'),
+    url('~/fonts/ux-stencil.svg?a8uv55#ux-stencil') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -12,7 +12,7 @@
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'draw-b4' !important;
+  font-family: 'ux-stencil' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;

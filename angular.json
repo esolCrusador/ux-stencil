@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "draw-b4": {
+    "ux-stencil": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,7 +16,7 @@
             "allowedCommonJsDependencies": [
               "hammerjs"
             ],
-            "outputPath": "dist/draw-b4/browser",
+            "outputPath": "dist/ux-stencil/browser",
             "index": "src/index.original.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,7 +24,7 @@
             "aot": true,
             "assets": [
               { "glob": "favicon.*", "input": "src/assets/icons", "output": "/" },
-              "src/assets/images",
+              "src/assets",
               "src/robots.txt",
               "src/sitemap.xml"
             ],
@@ -76,18 +76,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "draw-b4:build"
+            "browserTarget": "ux-stencil:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "draw-b4:build:production"
+              "browserTarget": "ux-stencil:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "draw-b4:build"
+            "browserTarget": "ux-stencil:build"
           }
         },
         "test": {
@@ -126,18 +126,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "draw-b4:serve"
+            "devServerTarget": "ux-stencil:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "draw-b4:serve:production"
+              "devServerTarget": "ux-stencil:serve:production"
             }
           }
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/draw-b4/server",
+            "outputPath": "dist/ux-stencil/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
           },
@@ -158,21 +158,21 @@
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
-            "browserTarget": "draw-b4:build",
-            "serverTarget": "draw-b4:server"
+            "browserTarget": "ux-stencil:build",
+            "serverTarget": "ux-stencil:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "draw-b4:build:production",
-              "serverTarget": "draw-b4:server:production"
+              "browserTarget": "ux-stencil:build:production",
+              "serverTarget": "ux-stencil:server:production"
             }
           }
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "draw-b4:build:production",
-            "serverTarget": "draw-b4:server:production",
+            "browserTarget": "ux-stencil:build:production",
+            "serverTarget": "ux-stencil:server:production",
             "routes": [
               "/"
             ]
@@ -184,7 +184,7 @@
       }
     }
   },
-  "defaultProject": "draw-b4",
+  "defaultProject": "ux-stencil",
   "cli": {
     "analytics": "d59639c2-7223-4a47-9369-39c544c7c97c"
   }

@@ -4,7 +4,7 @@ const date = new Date().toISOString();
 const publishDate = date.substring(0, date.indexOf('T'));
 
 const publishDateOptions = {
-    files: 'dist/draw-b4/browser/sitemap.xml',
+    files: 'dist/ux-stencil/browser/sitemap.xml',
     from: '{{ PUBLISH_DATE }}',
     to: publishDate,
 };

@@ -1,5 +1,5 @@
 {
-  "name": "draw-b4",
+  "name": "ux-stencil",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,10 +9,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev:ssr": "ng run draw-b4:serve-ssr",
-    "serve:ssr": "node dist/draw-b4/server/main.js",
-    "build:ssr": "ng build --prod && ng run draw-b4:server:production",
-    "prerender": "ng run draw-b4:prerender"
+    "dev:ssr": "ng run ux-stencil:serve-ssr",
+    "serve:ssr": "node dist/ux-stencil/server/main.js",
+    "build:ssr": "ng build --prod && ng run ux-stencil:server:production",
+    "prerender": "ng run ux-stencil:prerender"
   },
   "private": true,
   "dependencies": {

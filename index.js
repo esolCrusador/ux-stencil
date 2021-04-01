@@ -1,2 +1,2 @@
-const { run } = require('./dist/draw-b4/server/main.js');
+const { run } = require('./dist/ux-stencil/server/main.js');
 run();
