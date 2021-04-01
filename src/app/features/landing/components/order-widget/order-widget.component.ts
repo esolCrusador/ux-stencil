@@ -1,7 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { Gallery } from 'src/app/feature/images-gallery/gallery';
-import { GalleryImage } from 'src/app/feature/images-gallery/gallery-image.enum';
+import { Gallery } from '@ux-stencil/features/images-gallery/gallery';
+import { GalleryImage } from '@ux-stencil/features/images-gallery/gallery-image.enum';
 import { LandingMenu } from '../../models/landing-menu.enum';
 
 @Component({

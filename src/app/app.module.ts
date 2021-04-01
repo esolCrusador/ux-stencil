@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingModule } from './feature/landing/landing.module';
-import { ControlsModule } from './feature/controls/controls.module';
-import { CommonServicesModule } from './feature/common/services/common-services.module';
-import { ConfigurationModule } from './feature/configuration/configuration.module';
-import { AnalyticsModule } from './feature/analytics/analytics.module';
+import { LandingModule } from './features/landing/landing.module';
+import { ControlsModule } from './features/controls/controls.module';
+import { CommonServicesModule } from './features/common/services/common-services.module';
+import { ConfigurationModule } from './features/configuration/configuration.module';
+import { AnalyticsModule } from './features/analytics/analytics.module';
 
 
 @NgModule({
