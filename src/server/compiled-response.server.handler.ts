@@ -3,6 +3,7 @@ import { RequestHandler } from "express";
 import { access, writeFile } from "fs";
 
 type CompiledResponseHandler = (compiledHtmlPath: string) => RequestHandler;
+const stylePrefix = 'rel="stylesheet" href="';
 
 const existsAsync = (path: string) => new Promise<boolean>(resolve =>
   access(path, R_OK, (error => error ? resolve(false) : resolve(true)))
@@ -18,7 +19,12 @@ export const compiledResponseHandler: CompiledResponseHandler = (compiledHtmlPat
   if (forceReload || !await existsAsync(compiledHtmlPath)) {
     const sendResponse = response.send.bind(response);
 
-    response.send = body => {
+    response.send = (body: any) => {
+      const styleIndex = body.indexOf(stylePrefix) + stylePrefix.length;
+      const styleEndIndex = body.indexOf('"', styleIndex);
+      const stylePath = body.substring(styleIndex, styleEndIndex);
+      body = body.replace('{{ StylePath }}', stylePath);
+
       writeFileAsync(compiledHtmlPath, body)
         .then(() => console.debug('File saved successfuly'))
         .catch(error => console.error(error));
