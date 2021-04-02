@@ -1,0 +1,24 @@
+<form id="admin-mail-form" [formGroup]="form">
+    <div>
+        <label>
+            Recipient Email
+            <input type="text" formControlName="recipient" [class.error]="form.errors && form.errors.recipient && form.controls.recipient.dirty" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Recipient Name
+            <input type="text" formControlName="recipientName" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Subject
+            <input type="text" formControlName="subject" />
+        </label>
+    </div>
+    <div *ngIf="sendingResult" class="sending-result" [class.failed]="!sendingSuccessful">
+        {{ sendingResult }}
+    </div>
+    <button type="submit" (click)="sendEmail($event)" [disabled]="sending">Send</button>
+</form>

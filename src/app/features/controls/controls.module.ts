@@ -13,10 +13,15 @@ import { BackToTopComponent } from './back-to-top/back-to-top.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { A11yModule } from '@angular/cdk/a11y';
 import { TopImageWrapperComponent } from './top-image-wrapper/top-image-wrapper.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     imports: [
         CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
 
         A11yModule,
 
@@ -36,6 +41,8 @@ import { TopImageWrapperComponent } from './top-image-wrapper/top-image-wrapper.
     ],
     exports: [
         CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
 
         RepeaterComponent,
         CircleIconComponent,

@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ContactType } from '@ux-stencil/features/controls/contact-link/contact.pipe';
-import { IImageModel } from '@ux-stencil/features/images-gallery/models/i-image.model';
-import { ScrollService } from '@ux-stencil/features/controls/services/scroll.service';
+import { ContactType } from '@ux-stencil/controls/contact-link/contact.pipe';
+import { IImageModel } from '@ux-stencil/images-gallery/models/i-image.model';
+import { ScrollService } from '@ux-stencil/controls/services/scroll.service';
 import { IContactsModel } from '../../models/i-contacts.model';
 import { LandingMenu } from '../../models/landing-menu.enum';
 import { Gallery } from '../../../images-gallery/gallery';
-import { GalleryImage } from '@ux-stencil/features/images-gallery/gallery-image.enum';
+import { GalleryImage } from '@ux-stencil/images-gallery/gallery-image.enum';
 
 @Component({
     selector: 'my-top-block-widget',

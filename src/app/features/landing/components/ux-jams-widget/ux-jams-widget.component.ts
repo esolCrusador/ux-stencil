@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Gallery } from '@ux-stencil/features/images-gallery/gallery';
-import { GalleryImage } from '@ux-stencil/features/images-gallery/gallery-image.enum';
+import { Gallery } from '@ux-stencil/images-gallery/gallery';
+import { GalleryImage } from '@ux-stencil/images-gallery/gallery-image.enum';
 import { ContactType } from '../../../controls/contact-link/contact.pipe';
 import { IContactsModel } from '../../models/i-contacts.model';
 
