@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ContactType } from 'src/app/feature/controls/contact-link/contact.pipe';
-import { Gallery } from 'src/app/feature/images-gallery/gallery';
-import { GalleryImage } from 'src/app/feature/images-gallery/gallery-image.enum';
+import { ContactType } from '@ux-stencil/controls/contact-link/contact.pipe';
+import { Gallery } from '@ux-stencil/images-gallery/gallery';
+import { GalleryImage } from '@ux-stencil/images-gallery/gallery-image.enum';
 import { ScrollService } from '../../../controls/services/scroll.service';
 import { IContactsModel } from '../../models/i-contacts.model';
 import { LandingMenu } from '../../models/landing-menu.enum';

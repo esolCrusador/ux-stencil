@@ -20,7 +20,6 @@ import { TopBlockWidgetComponent } from './components/top-block-widget/top-block
         FooterWidgetComponent,
         TopBlockWidgetComponent,
     ],
-    exports: [LandingComponent],
     providers: [
     ],
 })

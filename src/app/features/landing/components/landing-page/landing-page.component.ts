@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { IMenuItemModel } from 'src/app/feature/controls/menu/i-menu-item.model';
-import { MenuProvider } from 'src/app/feature/controls/services/menu.provider';
+import { IMenuItemModel } from '@ux-stencil/controls/menu/i-menu-item.model';
+import { MenuProvider } from '@ux-stencil/controls/services/menu.provider';
 import { LandingMenu } from '../../models/landing-menu.enum';
 import { IContactsModel } from '../../models/i-contacts.model';
-import { IAnalyticsService } from 'src/app/feature/analytics/i-analytics.service';
-import { Gallery } from 'src/app/feature/images-gallery/gallery';
-import { GalleryImage } from 'src/app/feature/images-gallery/gallery-image.enum';
-import { SeoService } from 'src/app/feature/common/services/seo.service';
+import { IAnalyticsService } from '@ux-stencil/analytics/i-analytics.service';
+import { Gallery } from '@ux-stencil/images-gallery/gallery';
+import { GalleryImage } from '@ux-stencil/images-gallery/gallery-image.enum';
+import { SeoService } from '@ux-stencil/common/services/seo.service';
 
 @Component({
     selector: 'app-landing',

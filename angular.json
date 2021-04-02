@@ -30,8 +30,7 @@
             ],
             "styles": [
               {
-                "input": "src/styles.scss",
-                "lazy": false
+                "input": "src/styles.scss"
               }
             ],
             "scripts": []
@@ -54,8 +53,7 @@
               "buildOptimizer": true,
               "styles": [
                 {
-                  "input": "src/styles.scss",
-                  "lazy": true
+                  "input": "src/styles.scss"
                 }
               ],
               "budgets": [

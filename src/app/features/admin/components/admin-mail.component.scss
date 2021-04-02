@@ -1,0 +1,12 @@
+#admin-mail-form {
+    .ng-invalid.ng-dirty {
+        border-color: red;
+    }
+
+    .sending-result {
+        color: green;
+        &.failed {
+            color: red;
+        }
+    }
+}
