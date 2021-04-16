@@ -161,7 +161,7 @@
         #summary-text {
             word-spacing: 2px;
             line-height: 20px;
-            @include dynamicSize(13, 16);
+            @include dynamicSize(14, 16);
 
             .summary-element {
                 margin-top: 30px;

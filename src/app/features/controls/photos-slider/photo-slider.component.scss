@@ -18,6 +18,8 @@
         top: 0;
         left: 0;
         cursor: pointer;
+        width: 100%;
+        justify-content: space-between;
 
         &.bottom {
             top: initial;
