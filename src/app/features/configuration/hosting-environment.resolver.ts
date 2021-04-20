@@ -21,7 +21,7 @@ export class HostingEnvironmentResolver {
 
     public getHostingEnvironment(): HostingEnvironment {
         if (!this.hostingEnvironment) {
-            if (this.baseUrl.startsWith('http://ux-stencil.net'))
+            if (this.baseUrl.startsWith('https://ux-stencil.net'))
                 this.hostingEnvironment = HostingEnvironment.Production;
             else
                 this.hostingEnvironment = HostingEnvironment.Local;
