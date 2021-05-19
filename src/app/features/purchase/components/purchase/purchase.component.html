@@ -1,0 +1,16 @@
+<div class="top-panel">
+    <div id="page-header">
+        UX_<span class="swag">STENCIL<span class="swag-background"></span></span>
+    </div>
+    <div class="right-menu">
+        <a [routerLink]="['/', 'purchase', 'cart']">
+            <i class="icon-cart">
+            </i>
+            {{ itemsCount$ | async }}
+        </a>
+    </div>
+</div>
+<div>
+    <router-outlet>
+    </router-outlet>
+</div>

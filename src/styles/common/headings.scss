@@ -29,6 +29,10 @@ h2 {
     @include dynamicSize(22, 48);
 }
 
+h3 {
+    @include dynamicSize(24, 32);
+}
+
 h5 {
     font-size: 14px;
 }
