@@ -1,0 +1,9 @@
+<span class="numeric-container input">
+    <span #minus class="minus act">
+        <i class="icon-minus"> </i>
+    </span>
+    <input type="text" tabindex="-1" [value]="inputValue" (input)="onValueChanged($event)" />
+    <span #plus class="plus act">
+        <i class="icon-plus"></i>
+    </span>
+</span>

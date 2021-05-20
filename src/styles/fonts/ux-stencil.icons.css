@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'ux-stencil';
-  src:  url('~/fonts/ux-stencil.eot?3xxa82');
-  src:  url('~/fonts/ux-stencil.eot?3xxa82#iefix') format('embedded-opentype'),
-    url('~/fonts/ux-stencil.ttf?3xxa82') format('truetype'),
-    url('~/fonts/ux-stencil.woff?3xxa82') format('woff'),
-    url('~/fonts/ux-stencil.svg?3xxa82#ux-stencil') format('svg');
+  src:  url('~/fonts/ux-stencil.eot?8ngimt');
+  src:  url('~/fonts/ux-stencil.eot?8ngimt#iefix') format('embedded-opentype'),
+    url('~/fonts/ux-stencil.ttf?8ngimt') format('truetype'),
+    url('~/fonts/ux-stencil.woff?8ngimt') format('woff'),
+    url('~/fonts/ux-stencil.svg?8ngimt#ux-stencil') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -24,7 +24,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-plus:before {
+  content: "\e94e";
+}
+.icon-minus:before {
+  content: "\e94f";
+}
+.icon-remove:before {
+  content: "\e94d";
+}
+.icon-menu:before {
+  content: "\e94c";
+}
 .icon-cart:before {
   content: "\e94b";
 }

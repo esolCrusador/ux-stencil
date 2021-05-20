@@ -1,18 +1,27 @@
+@mixin alwaysHorizontal {
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row;
+
+    .menu-item {
+        padding-left: 0;
+        text-align: center;
+    }
+}
+
 .menu-component {
     display: flex;
     line-height: 3em;
     flex-flow: column;
     align-items: flex-start;
 
+    &.always-horizontal {
+        @include alwaysHorizontal;
+    }
+
     &.horizontal {
         @include desktop-or-landscape {
-            justify-content: space-between;
-            align-items: center;
-            flex-flow: row;
-
-            .menu-item {
-                padding-left: 0;
-            }
+            @include alwaysHorizontal;
         }
     }
 

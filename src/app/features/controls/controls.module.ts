@@ -1,10 +1,12 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RepeaterComponent } from './repeater/repeater.component';
 import { CircleIconComponent } from './circle-icon/circle-icon.component';
 import { PhotoSliderComponent } from './photos-slider/photo-slider.component';
+import { NumericComponent } from './inputs/numeric/numeric.component';
 import { ContactLinkPipe } from './contact-link/contact.pipe';
 import { BypassDomSecurityPipe } from './bypass-dom-security/bypass-dom-security.pipe';
+import { MoneyPipe } from './money/money.pipe';
 import { ContactLinkComponent } from './contact-link/contact-link.component';
 import { MenuComponent } from './menu/menu.component';
 import { MenuProvider } from './services/menu.provider';
@@ -36,8 +38,11 @@ import { HttpClientModule } from '@angular/common/http';
         BackToTopComponent,
         TopImageWrapperComponent,
 
+        NumericComponent,
+
         ContactLinkPipe,
         BypassDomSecurityPipe,
+        MoneyPipe,
     ],
     exports: [
         CommonModule,
@@ -52,13 +57,17 @@ import { HttpClientModule } from '@angular/common/http';
         BackToTopComponent,
         TopImageWrapperComponent,
 
+        NumericComponent,
+
         ContactLinkPipe,
         BypassDomSecurityPipe,
+        MoneyPipe,
 
         MatMenuModule,
     ],
     providers: [
         MenuProvider,
+        DecimalPipe,
         ScrollService,
     ]
 })

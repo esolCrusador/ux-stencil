@@ -24,24 +24,12 @@ export class LandingComponent implements OnInit {
         uxJamsGroup: 'designers_meetups'
     };
 
-    private readonly menu: { [itemId in keyof typeof LandingMenu]: string } = {
-        Product: 'Product',
-        Advantages: 'Advantages',
-        UxJams: 'UX jam events',
-        Order: 'Order'
-    };
-
     constructor(
         private readonly menuProvider: MenuProvider,
         private readonly analyticsService: IAnalyticsService,
         private readonly seoService: SeoService,
     ) {
-        const menuItems: IMenuItemModel[] = Object.keys(this.menu)
-            .reduce((agg, itemId: keyof typeof LandingMenu) => {
-                agg.push({ id: LandingMenu[itemId], title: this.menu[itemId] });
-                return agg;
-            }, [] as IMenuItemModel[]);
-        this.menuProvider.setMenu(menuItems);
+        this.menuProvider.initalize();
     }
 
     public ngOnInit(): void {

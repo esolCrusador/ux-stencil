@@ -1,0 +1,33 @@
+$height: 24px;
+
+.numeric-container {
+    position: relative;
+
+    .minus, .plus{
+        position: absolute;
+        font-size: $height;
+        line-height: $height;
+        height: $height;
+        color: $appGray;
+        cursor: pointer;
+    }
+
+    .minus {
+        left: 0;
+        padding-left: 0.5em;
+    }
+
+    .plus{
+        right: 0;
+        padding-right: 0.5em;
+    }
+
+    input {
+        border: 2px solid $gridBorderColor;
+        outline: none;
+        border-radius: 10px;
+        text-align: center;
+        width: 90px;
+        height: $height;
+    }
+}

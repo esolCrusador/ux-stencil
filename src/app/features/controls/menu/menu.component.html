@@ -1,4 +1,4 @@
-<div class="menu-component" [class.horizontal]="direction === MenuDirection.Horizontal">
+<div class="menu-component" [class]="direction">
     <ng-container *ngFor="let menuItem of menuStructure.items; trackBy: trackMenuItem">
         <a href="#{{ menuItem.id }}" (click)="menuItemSelected($event, menuItem)" class="menu-item" [class.active]="menuStructure.isActive(menuItem)">
             {{ menuItem.title }}
