@@ -27,7 +27,7 @@ export class PurchaseComponent implements OnInit {
     }
     
     public ngOnInit(): void {
-        this.itemsCount$ = this.cartService.getCart$().pipe(map(cart => sumFunction(cart.items, items => items.quantity)));
+        this.itemsCount$ = this.cartService.getCart$().pipe(map(cart => sumFunction(cart.items, items => items.quantity > 0 ? 1 : 0)));
         this.isMobile$ = this.windowEventsService.windowSize$().pipe(map(size => size.width < 768 ));
     }
 }

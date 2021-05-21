@@ -4,6 +4,8 @@
 
         .column {
             flex-basis: 0;
+            align-items: center;
+            display: flex;
 
             &.xl {
                 flex-grow: 5;
@@ -54,10 +56,11 @@
 
                         .item-name {
                             font-weight: 400;
+                            white-space: nowrap;
                             @include dynamicSize(18, 22);
                         }
 
-                        .item-price{
+                        .item-price {
                             @include dynamicSize(16, 20);
                             font-weight: 700;
                             font-family: "Montserrat", "Proxima Nova";
@@ -65,7 +68,26 @@
                         }
                     }
                 }
+
+                .remove {
+                    font-size: 24px;
+                    justify-content: center;
+                    a {
+                        cursor: pointer;
+                    }
+                }
             }
+        }
+
+        .grid-footer {
+            border-top: 1px solid $gridBorderColor;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .actions {
+            width: 50%;
+            min-width: 200px;
         }
     }
 }

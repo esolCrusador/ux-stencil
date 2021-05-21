@@ -11,11 +11,14 @@ import { switchMap, takeUntil } from 'rxjs/operators';
 export class NumericComponent implements OnInit, OnDestroy {
     private readonly subscription$: Subscription;
     private precision = 0;
-
+    private value: number;
 
     public inputValue: string;
 
-    @Input() public value: number;
+    @Input('value') public set valueProperty(value: number | string) {
+        this.value = +value;
+        this.inputValue = this.getValueString(this.value);
+    }
     @Input() public min: number = 0;
     @Input() public max: number = Number.MAX_SAFE_INTEGER;
     @Input('precision') public set numberPrecision(value: string | number) {
@@ -39,7 +42,6 @@ export class NumericComponent implements OnInit, OnDestroy {
 
         this.handleArrow(this.minus.nativeElement, value => value - step);
         this.handleArrow(this.plus.nativeElement, value => value + step);
-        this.inputValue = this.getValueString(this.value);
     }
 
     public ngOnDestroy(): void {
@@ -111,8 +113,9 @@ export class NumericComponent implements OnInit, OnDestroy {
             value = max;
 
         this.inputValue = this.getValueString(value);
+        if (this.value != value)
+            this.valueChanged.next(value);
         this.value = value;
-        this.valueChanged.next(value);
     }
 
     private getValueString(value: number) {

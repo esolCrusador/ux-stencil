@@ -15,8 +15,8 @@
             <div class="column xs">
             </div>
         </div>
-        <div class="grid-content">
-            <ng-container *ngIf="cart$ | async as cart">
+        <ng-container *ngIf="cart$ | async as cart">
+            <div class="grid-content">
                 <div *ngFor="let item of cart.items; trackBy:trackCartItem" class="grid-row">
                     <div class="column xl">
                         <div class="item-card">
@@ -28,18 +28,30 @@
                                     {{ item.name }}
                                 </div>
                                 <div class="item-price">
-                                    {{ item.cost | moneyPipe:item.currency }}
+                                    {{ item.cost | moneyPipe:cart.currency }}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="column m">
-                        <my-numeric [value]="item.quantity" [min]="1" [max]="50" (valueChanged)="quantityChanged(cart, item, $event)"></my-numeric>
+                        <my-numeric [value]="item.quantity" [min]="0" [max]="50" (valueChanged)="quantityChanged(cart, item, $event)"></my-numeric>
                     </div>
-                    <div class="column xs">
+                    <div class="column xs remove">
+                        <a (click)="remove(cart, item)"> <i class="icon-remove"></i> </a>
                     </div>
                 </div>
-            </ng-container>
+            </div>
+            <div class="grid-footer">
+                <h3>
+                    Order Total:
+                </h3>
+                <h3>
+                    {{ cart.total | moneyPipe:cart.currency }}
+                </h3>
+            </div>
+        </ng-container>
+        <div class="actions">
+            <button type="submit" class="order-button button primary">Confirm Order</button>
         </div>
     </div>
 </div>

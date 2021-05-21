@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
     public cart$: Observable<CartModel>;
 
     constructor(
-        private readonly cartService: CartService
+        private readonly cartService: CartService,
     ) {
     }
 
@@ -27,8 +27,12 @@ export class CartComponent implements OnInit {
     }
 
     public quantityChanged(cart: CartModel, item: CartItemModel, quantity: number) {
-        item.quantity = quantity;
+        cart.updateQuantity(item, quantity);
 
         this.cartService.updateCart(cart);
+    }
+
+    public remove(cart: CartModel, item: CartItemModel) {
+        this.quantityChanged(cart, item, 0);
     }
 }

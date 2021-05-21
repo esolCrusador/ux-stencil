@@ -20,8 +20,8 @@ export class CartService {
                 name: 'UX Stencil',
                 quantity: 1,
                 cost: 29.99,
-                currency: '$'
-            })]
+            })],
+            currency: '$'
         };
 
         this.cart$ = new BehaviorSubject<CartModel>(new CartModel(cart));
@@ -34,7 +34,7 @@ export class CartService {
     }
 
     public updateCart(cart: CartModel): void {
-        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('cart', JSON.stringify(cart.toCart()));
         this.cart$.next(cart);
     }
 }

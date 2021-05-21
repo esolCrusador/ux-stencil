@@ -6,5 +6,4 @@ export interface ICartItem {
     name: string;
     quantity: number;
     cost: number;
-    currency: string;
 }

@@ -1,6 +1,7 @@
 $height: 24px;
 
 .numeric-container {
+    display: inline-block;
     position: relative;
 
     .minus, .plus{
@@ -14,12 +15,12 @@ $height: 24px;
 
     .minus {
         left: 0;
-        padding-left: 0.5em;
+        padding-left: 0.4em;
     }
 
     .plus{
         right: 0;
-        padding-right: 0.5em;
+        padding-right: 0.4em;
     }
 
     input {
