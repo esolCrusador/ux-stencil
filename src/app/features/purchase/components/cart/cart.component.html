@@ -4,7 +4,7 @@
             Shopping Cart
         </h3>
     </div>
-    <div class="cart-grid">
+    <div class="grid-component items-container">
         <div class="grid-header">
             <div class="column xl">
                 ITEMS
@@ -49,9 +49,9 @@
                     {{ cart.total | moneyPipe:cart.currency }}
                 </h3>
             </div>
+            <div class="grid-actions">
+                <button type="submit" class="order-button button primary" (click)="confirmOrder()" [disabled]="cart.total <= 0">Confirm Order</button>
+            </div>
         </ng-container>
-        <div class="actions">
-            <button type="submit" class="order-button button primary">Confirm Order</button>
-        </div>
     </div>
 </div>

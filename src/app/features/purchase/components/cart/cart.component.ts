@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { first } from "rxjs/operators";
 import { CartService } from '../../services/cart.service';
 import { CartItemModel } from "@ux-stencil/purchase/models/cart-item.model";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-cart',
@@ -14,6 +15,7 @@ export class CartComponent implements OnInit {
     public cart$: Observable<CartModel>;
 
     constructor(
+        private readonly router: Router,
         private readonly cartService: CartService,
     ) {
     }
@@ -34,5 +36,9 @@ export class CartComponent implements OnInit {
 
     public remove(cart: CartModel, item: CartItemModel) {
         this.quantityChanged(cart, item, 0);
+    }
+
+    public confirmOrder(): void {
+        this.router.navigate(['/', 'purchase', 'shipping']);
     }
 }

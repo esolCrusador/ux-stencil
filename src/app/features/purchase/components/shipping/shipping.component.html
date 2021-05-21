@@ -1,0 +1,83 @@
+<div class="shipping-component section">
+    <div>
+        <h3>
+            Order Details
+        </h3>
+    </div>
+    <div class="grid-component items-container">
+        <div class="grid-header">
+        </div>
+        <ng-container *ngIf="cart$ | async as cart">
+            <div class="grid-content">
+                <div *ngFor="let item of cart.items; trackBy:trackCartItem" class="grid-row">
+                    <div class="column">
+                        <div class="item-card">
+                            <div class="item-image">
+                                <img [src]="item.image.url" [alt]="item.image.description" />
+                            </div>
+                            <div class="item-properties">
+                                <div class="item-name">
+                                    {{ item.name }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div>
+                            {{ item.quantity }}&nbsp;x&nbsp;<span class="item-price">{{ item.cost | moneyPipe:cart.currency }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-content">
+                <div class="grid-row items-summary active">
+                    <div class="left">
+                        <div>
+                            Items:
+                        </div>
+                        <div>
+                            Shipping & Handling:
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div>
+                            {{ cart.total | moneyPipe:cart.currency }}
+                        </div>
+                        <div>
+                            {{ 0 | moneyPipe:cart.currency }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-footer">
+                <h3>
+                    Order Total:
+                </h3>
+                <h3>
+                    {{ cart.total | moneyPipe:cart.currency }}
+                </h3>
+            </div>
+        </ng-container>
+    </div>
+    <form>
+        <div>
+            <h3>
+                Shipping address
+            </h3>
+        </div>
+        <div>
+            [Shipping Fields]
+        </div>
+        <div>
+            <h3>
+                Billing address
+            </h3>
+        </div>
+        <div>
+            [Billing Fields]
+        </div>
+    </form>
+    <div class="grid-actions">
+        <button type="submit" class="order-button button primary">Confirm Order</button>
+    </div>
+</div>
