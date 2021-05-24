@@ -1,0 +1,17 @@
+form {
+    .two-controls {
+        display: flex;
+        flex-grow: 1;
+
+        > * {
+            flex-grow: 1;
+            
+            &:first-child {
+                padding-right: 10px;
+            }
+            &:last-child {
+                padding-left: 10px;
+            }
+        }
+    }
+}

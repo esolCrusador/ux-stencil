@@ -42,3 +42,7 @@ a {
     text-decoration: none;
     color: $linkColor;
 }
+
+textarea.mat-input-element {
+    overflow: hidden !important;
+}

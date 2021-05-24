@@ -5,6 +5,7 @@ import { ControlsModule } from '@ux-stencil/controls/controls.module';
 import { RouterModule } from '@angular/router';
 import { PurchaseComponent } from './components/purchase/purchase.component';
 import { ShippingComponent } from './components/shipping/shipping.component';
+import { AddressFormComponent } from './components/address-form/address-form.component';
 
 @NgModule({
     imports: [
@@ -16,6 +17,7 @@ import { ShippingComponent } from './components/shipping/shipping.component';
         PurchaseComponent,
         CartComponent,
         ShippingComponent,
+        AddressFormComponent,
     ]
 })
 export class PurchaseModule {

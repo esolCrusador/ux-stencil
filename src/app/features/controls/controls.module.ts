@@ -17,6 +17,9 @@ import { A11yModule } from '@angular/cdk/a11y';
 import { TopImageWrapperComponent } from './top-image-wrapper/top-image-wrapper.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
     imports: [
@@ -26,6 +29,10 @@ import { HttpClientModule } from '@angular/common/http';
         HttpClientModule,
 
         A11yModule,
+
+        MatFormFieldModule,
+        MatInputModule,
+        MatCheckboxModule,
 
         MatMenuModule,
     ],
@@ -62,6 +69,10 @@ import { HttpClientModule } from '@angular/common/http';
         ContactLinkPipe,
         BypassDomSecurityPipe,
         MoneyPipe,
+
+        MatFormFieldModule,
+        MatInputModule,
+        MatCheckboxModule,
 
         MatMenuModule,
     ],
