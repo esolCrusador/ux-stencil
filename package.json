@@ -29,6 +29,7 @@
     "@angular/material": "~10.2.7",
     "@nguniversal/express-engine": "^10.0.2",
     "ng-animate-scroll": "7.1.0",
+    "mat-select-filter": "2.3.9",
     "express": "^4.15.2",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

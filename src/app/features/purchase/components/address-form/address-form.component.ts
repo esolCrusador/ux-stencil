@@ -12,6 +12,13 @@ import { Observable, Subscription } from "rxjs";
 export class AddressFormComponent implements OnInit, OnDestroy {
     private readonly subscription$: Subscription;
 
+    public countries: { id: string, name: string }[] = [
+        { id: '1', name: 'Belarus' },
+        { id: '2', name: 'Poland' },
+        { id: '3', name: 'North Korea' }
+    ];
+    public filteredCountries: { id: string, name: string }[] = this.countries;
+
     @Input() public namePrefix: string;
     @Input() public form: IFormGroup<IAddressModel>;
     @Input() public changed$: Observable<void>;

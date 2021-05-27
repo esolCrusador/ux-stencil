@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSelectFilterModule } from 'mat-select-filter';
 
 @NgModule({
     imports: [
@@ -33,6 +35,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         MatFormFieldModule,
         MatInputModule,
         MatCheckboxModule,
+        MatSelectModule,
+        MatSelectFilterModule,
 
         MatMenuModule,
     ],
@@ -73,6 +77,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         MatFormFieldModule,
         MatInputModule,
         MatCheckboxModule,
+        MatSelectModule,
+        MatSelectFilterModule,
 
         MatMenuModule,
     ],

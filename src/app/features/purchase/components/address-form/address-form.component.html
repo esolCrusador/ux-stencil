@@ -31,7 +31,13 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>{{ labels.country }}</mat-label>
-                <input matInput name="{{ namePrefix }}.country" type="text" formControlName="country" />
+                <mat-select formControlName="country">
+                    <mat-select-filter [array]="countries" [displayMember]="'name'" (filteredReturn)="filteredCountries = $event">
+                    </mat-select-filter>
+                    <mat-option *ngFor="let country of filteredCountries" [value]="country.id">
+                        {{ country.name }}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
         </div>
     </div>
