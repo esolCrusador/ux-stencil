@@ -47,7 +47,7 @@ export function app(): express.Express {
   });
 
   // All regular routes use the Universal engine
-  server.get('*' , compiledResponseHandler(join(distFolder, 'index.html')), (req, res) => {
+  server.get('*' , compiledResponseHandler(path => join(distFolder, path, 'index.html')), (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 
