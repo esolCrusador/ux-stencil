@@ -10,7 +10,6 @@ import { ConfigurationModule } from './features/configuration/configuration.modu
 import { AnalyticsModule } from './features/analytics/analytics.module';
 import { AuthModule } from './features/auth/auth.module';
 
-
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +21,7 @@ import { AuthModule } from './features/auth/auth.module';
     LandingModule,
     ConfigurationModule,
     AnalyticsModule,
-    // AuthModule,
+    AuthModule,
 
     CommonServicesModule,
   ],

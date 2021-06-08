@@ -1,11 +1,11 @@
 import { AuthProviderType } from './auth-provider-type.enum';
 import { Observable, of } from 'rxjs';
 import { AuthApiClient } from '../api-clients/auth.api-client';
-import { BrowserType } from '@share-book/features/common/enums/browser-type.enum';
-import { BrowserInfoService } from '@share-book/features/infrastructure/browser-info/browser-info.service';
-import { ScriptLoaderService } from '@share-book/features/common/services/script-loader.service';
 import { publishReplay, refCount, catchError, tap } from 'rxjs/operators';
-import { ILogger } from '@share-book/features/logging/i-logger';
+import { BrowserInfoService } from '../../infrastructure/browser-info/browser-info.service';
+import { ScriptLoaderService } from '../../common/services/script-loader.service';
+import { BrowserType } from '../../infrastructure/models/browser-type.enum';
+import { ILogger } from '../../logging/i-logger';
 
 export abstract class IAuthProvider {
     private static readonly SupportedBrowserTypes = [BrowserType.Chrome, BrowserType.Safari, BrowserType.Edge, BrowserType.Firefox, BrowserType.Opera];

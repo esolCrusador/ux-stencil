@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { IAuthProvider } from './i-auth.provider';
 import { AuthProviderType } from './auth-provider-type.enum';
-import { Observable, of } from 'rxjs';
+import { forkJoin, Observable, of } from 'rxjs';
 import { AuthApiClient } from '../api-clients/auth.api-client';
-import { BrowserInfoService } from '@share-book/features/infrastructure/browser-info/browser-info.service';
-import { ScriptLoaderService } from '@share-book/features/common/services/script-loader.service';
-import { ILogger } from '@share-book/features/logging/i-logger';
 import { tap, switchMap, concatMap } from 'rxjs/operators';
-import { ConfigurationService } from '@share-book/features/shared/domain-services/configuration.service';
+import { BrowserInfoService } from '@ux-stencil/infrastructure/browser-info/browser-info.service';
+import { ScriptLoaderService } from '@ux-stencil/common/services/script-loader.service';
+import { ILogger } from '@ux-stencil/logging/i-logger';
+import { ConfigurationService } from '@ux-stencil/configuration/configuration.service';
 
 declare var FB: facebook.FacebookStatic & { getAccessToken: () => string };
 
@@ -26,10 +26,13 @@ export class FacebookAuthProvider extends IAuthProvider {
     }
 
     public load(): Observable<void> {
-        return this.scriptLoader.loadScript('facebook-auth', 'https://connect.facebook.net/en_US/sdk.js').pipe(
-            tap(() => {
+        return forkJoin([
+            this.scriptLoader.loadScript('facebook-auth', 'https://connect.facebook.net/en_US/sdk.js'),
+            this.configurationService.getFacebookClientId$()
+        ]).pipe(
+            tap(([, facebookClientId]) => {
                 FB.init({
-                    appId: this.configurationService.facebookClientId,
+                    appId: facebookClientId,
                     autoLogAppEvents: true,
                     status: true,
                     cookie: true,

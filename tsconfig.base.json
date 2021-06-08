@@ -22,7 +22,10 @@
       "dom"
     ],
     "types": [
-      "google.analytics"
+      "google.analytics",
+      "facebook-js-sdk",
+      "gapi",
+      "gapi.auth2"
     ]
   }
 }
