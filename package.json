@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start-local": "ng serve --open=true --port=4205 --disable-host-check=true",
+    "start-local": "ng serve --open=true --port=4205 --proxy-config proxies/local.proxy.json --disable-host-check=true",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

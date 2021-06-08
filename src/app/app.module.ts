@@ -8,6 +8,7 @@ import { ControlsModule } from './features/controls/controls.module';
 import { CommonServicesModule } from './features/common/services/common-services.module';
 import { ConfigurationModule } from './features/configuration/configuration.module';
 import { AnalyticsModule } from './features/analytics/analytics.module';
+import { AuthModule } from './features/auth/auth.module';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { AnalyticsModule } from './features/analytics/analytics.module';
     LandingModule,
     ConfigurationModule,
     AnalyticsModule,
+    // AuthModule,
 
     CommonServicesModule,
   ],
