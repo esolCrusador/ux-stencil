@@ -2,7 +2,7 @@ export enum UploadEventType {
     InProgress = 'INPROGRESS',
     Completed = 'COMPLETED'
   }
-  
+
   export class UploadEvent<TResult = any> {
     constructor(
       public readonly type: UploadEventType,
@@ -11,4 +11,3 @@ export enum UploadEventType {
       public readonly totalBytes?: number,
     ) { }
   }
-  

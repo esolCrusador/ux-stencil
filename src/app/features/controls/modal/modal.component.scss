@@ -1,0 +1,24 @@
+.modal {
+    .modal-header {
+        position: relative;
+
+        .modal-title-wrapper {
+            .modal-title {
+            }
+        }
+        .modal-close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+        }
+    }
+
+    .modal-content-wrapper {
+        min-width: 350px;
+        max-width: 100%;
+
+        .modal-content {
+        }
+    }
+}

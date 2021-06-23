@@ -40,7 +40,7 @@ export class LandingComponent implements OnInit {
     private setupSeo() {
         this.seoService.update(
             'UX/UI Stencil', 
-            'Stencils for UX sketching on paper. A steel stencil designed for sketching iPhone prototypes. Brainstorm your application ideas and share them in no time.', 
+            'Stencils for UX sketching on paper. A steel stencil designed for sketching iPone prototypes. Brainstorm your application ideas and share them in no time.', 
             Gallery[GalleryImage.MainPhoto].url,
             Gallery[GalleryImage.MainBackground].url
         );

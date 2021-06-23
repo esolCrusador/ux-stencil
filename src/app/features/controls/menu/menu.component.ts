@@ -53,7 +53,7 @@ export class MenuComponent implements OnInit {
     private retryWithTimeout(action: () => void, times: number = 5, timeout = 0) {
         return setTimeout(() => {
             try {
-                action()
+                action();
             } catch (e) {
                 if (times <= 0)
                     console.error(e);
@@ -62,6 +62,6 @@ export class MenuComponent implements OnInit {
                     this.retryWithTimeout(action, times - 1, timeout);
                 }
             }
-        }, timeout)
+        }, timeout);
     }
 }

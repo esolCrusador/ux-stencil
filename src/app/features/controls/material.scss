@@ -10,4 +10,6 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
 @include mat-form-field-theme($candy-app-theme);
 @include mat-checkbox-theme($candy-app-theme);
 @include mat-select-theme($candy-app-theme);
+@include mat-dialog-theme($candy-app-theme);
+
 @include cdk-text-field();

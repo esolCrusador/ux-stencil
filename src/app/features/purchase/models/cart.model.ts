@@ -1,6 +1,6 @@
-import { sumFunction } from "@ux-stencil/common/helpers/array.helper";
-import { CartItemModel } from "./cart-item.model";
-import { ICart } from "./i-cart";
+import { sumFunction } from '@ux-stencil/common/helpers/array.helper';
+import { CartItemModel } from './cart-item.model';
+import { ICart } from './i-cart';
 
 export class CartModel implements ICart {
     private _total: number;

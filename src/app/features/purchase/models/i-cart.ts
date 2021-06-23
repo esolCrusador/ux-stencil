@@ -1,4 +1,4 @@
-import { ICartItem } from "./i-cart-item";
+import { ICartItem } from './i-cart-item';
 
 export interface ICart {
     items: ICartItem[];

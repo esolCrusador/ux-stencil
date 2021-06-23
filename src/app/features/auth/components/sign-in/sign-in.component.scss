@@ -1,0 +1,16 @@
+.modal {
+    .modal-header {
+        position: relative;
+
+        .modal-title {
+        }
+        .modal-close {
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+        }
+    }
+
+    .modal-content {
+    }
+}

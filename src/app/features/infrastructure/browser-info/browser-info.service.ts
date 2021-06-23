@@ -1,5 +1,5 @@
-import { ILogger } from "../../logging/i-logger";
-import { BrowserType } from "../models/browser-type.enum";
+import { ILogger } from '../../logging/i-logger';
+import { BrowserType } from '../models/browser-type.enum';
 
 
 export abstract class BrowserInfoService {

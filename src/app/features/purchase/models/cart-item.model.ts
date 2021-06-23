@@ -1,5 +1,5 @@
-import { IImageModel } from "@ux-stencil/images-gallery/models/i-image.model";
-import { ICartItem } from "./i-cart-item";
+import { IImageModel } from '@ux-stencil/images-gallery/models/i-image.model';
+import { ICartItem } from './i-cart-item';
 
 export class CartItemModel implements ICartItem {
     private _quantity: number;
@@ -7,7 +7,7 @@ export class CartItemModel implements ICartItem {
     public readonly id: number;
     public readonly image: IImageModel;
     public readonly name: string;
-    public get quantity(): number{
+    public get quantity(): number {
         return this._quantity;
     }
     public readonly cost: number;

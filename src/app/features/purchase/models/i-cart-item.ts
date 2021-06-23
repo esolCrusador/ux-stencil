@@ -1,4 +1,4 @@
-import { IImageModel } from "@ux-stencil/images-gallery/models/i-image.model";
+import { IImageModel } from '@ux-stencil/images-gallery/models/i-image.model';
 
 export interface ICartItem {
     id: number;

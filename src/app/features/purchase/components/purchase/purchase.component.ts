@@ -7,7 +7,6 @@ import { MenuDirection } from "@ux-stencil/controls/menu/menu-direction.enum";
 import { MenuProvider } from "@ux-stencil/controls/services/menu.provider";
 import { WindowEventsService } from "@ux-stencil/common/services/window-events.service";
 import { AuthService } from '@ux-stencil/auth/services/auth.service';
-import { AuthProviderType } from "@ux-stencil/auth/providers/auth-provider-type.enum";
 
 @Component({
     selector: 'app-purchase',
@@ -24,7 +23,6 @@ export class PurchaseComponent implements OnInit {
         private readonly cartService: CartService,
         private readonly menuProvider: MenuProvider,
         private readonly windowEventsService: WindowEventsService,
-        private readonly authenticationService: AuthService,
     ) {
         this.menuProvider.initalize();
     }
@@ -32,7 +30,5 @@ export class PurchaseComponent implements OnInit {
     public ngOnInit(): void {
         this.itemsCount$ = this.cartService.getCart$().pipe(map(cart => sumFunction(cart.items, items => items.quantity > 0 ? 1 : 0)));
         this.isMobile$ = this.windowEventsService.windowSize$().pipe(map(size => size.width < 768 ));
-
-        this.authenticationService.signin(AuthProviderType.Facebook).subscribe();
     }
 }

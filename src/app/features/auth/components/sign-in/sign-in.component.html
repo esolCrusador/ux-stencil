@@ -1,0 +1,15 @@
+<my-modal>
+    <div class="modal-title">
+        Sign In
+    </div>
+    <div class="modal-content">
+        <button class="button primary" (click)="signIn(AuthProviderType.Facebook)" [disabled]="inProgress">
+            Facebook
+        </button>
+        <br />
+        <br />
+        <button class="button primary" (click)="signIn(AuthProviderType.Google)" [disabled]="inProgress">
+            Google
+        </button>
+    </div>
+</my-modal>

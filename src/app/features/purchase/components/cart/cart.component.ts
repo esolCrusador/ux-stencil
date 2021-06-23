@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
-import { CartModel } from "../../models/cart.model";
-import { Observable } from "rxjs";
-import { first } from "rxjs/operators";
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { CartModel } from '../../models/cart.model';
+import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
 import { CartService } from '../../services/cart.service';
-import { CartItemModel } from "@ux-stencil/purchase/models/cart-item.model";
-import { Router } from "@angular/router";
+import { CartItemModel } from '@ux-stencil/purchase/models/cart-item.model';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-cart',

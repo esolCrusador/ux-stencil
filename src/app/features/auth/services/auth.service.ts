@@ -1,12 +1,14 @@
-import { Injectable } from "@angular/core";
-import { AuthApiClient } from "../api-clients/auth.api-client";
-import { AuthProviderFactory } from "../providers/auth-provider.factory";
+import { Injectable } from '@angular/core';
+import { AuthApiClient } from '../api-clients/auth.api-client';
+import { AuthProviderFactory } from '../providers/auth-provider.factory';
 import { CookieService } from '../../infrastructure/cookies/cookie.service';
 import { ILogger } from '../../logging/i-logger';
-import { forkJoin, Observable } from "rxjs";
-import { IAuthProvider } from "../providers/i-auth.provider";
-import { AuthProviderType } from "../providers/auth-provider-type.enum";
-import { concatMap, map, mapTo } from "rxjs/operators";
+import { forkJoin, Observable } from 'rxjs';
+import { IAuthProvider } from '../providers/i-auth.provider';
+import { AuthProviderType } from '../providers/auth-provider-type.enum';
+import { concatMap, map, mapTo } from 'rxjs/operators';
+import { IUserInfoShortModel } from '../models/i-user-info-sort.model';
+import { UserInfoModel } from '../models/user-info.model';
 
 @Injectable()
 export class AuthService {
@@ -19,27 +21,25 @@ export class AuthService {
   ) {
   }
 
-  /*
-    public getUserInfo(): UserInfoModel {
-        const cookie = this.cookiesService.getCookie('Inf');
-        if (!cookie)
-            return null;
+  public getUserInfo(): UserInfoModel {
+    const cookie = this.cookiesService.getCookie('Inf');
+    if (!cookie)
+      return null;
 
-        const formattedJson = cookie.replace(/[{,] *([a-zA-Z]\w*):/g, (str, propName) => {
-            return str.replace(propName, `"${propName}"`);
-        });
+    const formattedJson = cookie.replace(/[{,] *([a-zA-Z]\w*):/g, (str, propName) => {
+      return str.replace(propName, `"${propName}"`);
+    });
 
-        const info = JSON.parse(formattedJson) as IUserInfoShort;
+    const info = JSON.parse(formattedJson) as IUserInfoShortModel;
 
-        return new UserInfoModel(info);
-    }
+    return new UserInfoModel(info);
+  }
 
-    public refreshUserInfo(): Observable<UserInfoModel> {
-        return this.authApiClient.refresh().pipe(
-            map(() => this.getUserInfo())
-        );
-    }
-  */  
+  public refreshUserInfo(): Observable<UserInfoModel> {
+    return this.authApiClient.refresh().pipe(
+      map(() => this.getUserInfo())
+    );
+  }
 
   public initializeProviders(): Observable<IAuthProvider[]> {
     return this.authProviderFactory.initializeAll();

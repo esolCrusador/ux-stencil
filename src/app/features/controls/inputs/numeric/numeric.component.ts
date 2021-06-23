@@ -1,6 +1,6 @@
-import { DecimalPipe } from "@angular/common";
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from "@angular/core";
-import { fromEvent, fromEventPattern, interval, merge, Subscription } from "rxjs";
+import { DecimalPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { fromEvent, fromEventPattern, interval, merge, Subscription } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
 
 @Component({

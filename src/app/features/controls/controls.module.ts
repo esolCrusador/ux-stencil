@@ -4,6 +4,7 @@ import { RepeaterComponent } from './repeater/repeater.component';
 import { CircleIconComponent } from './circle-icon/circle-icon.component';
 import { PhotoSliderComponent } from './photos-slider/photo-slider.component';
 import { NumericComponent } from './inputs/numeric/numeric.component';
+import { ModalComponent } from './modal/modal.component';
 import { ContactLinkPipe } from './contact-link/contact.pipe';
 import { BypassDomSecurityPipe } from './bypass-dom-security/bypass-dom-security.pipe';
 import { MoneyPipe } from './money/money.pipe';
@@ -21,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectFilterModule } from 'mat-select-filter';
 
 @NgModule({
@@ -37,6 +39,7 @@ import { MatSelectFilterModule } from 'mat-select-filter';
         MatCheckboxModule,
         MatSelectModule,
         MatSelectFilterModule,
+        MatDialogModule,
 
         MatMenuModule,
     ],
@@ -48,6 +51,7 @@ import { MatSelectFilterModule } from 'mat-select-filter';
         MenuComponent,
         BackToTopComponent,
         TopImageWrapperComponent,
+        ModalComponent,
 
         NumericComponent,
 
@@ -67,6 +71,7 @@ import { MatSelectFilterModule } from 'mat-select-filter';
         MenuComponent,
         BackToTopComponent,
         TopImageWrapperComponent,
+        ModalComponent,
 
         NumericComponent,
 
@@ -79,6 +84,7 @@ import { MatSelectFilterModule } from 'mat-select-filter';
         MatCheckboxModule,
         MatSelectModule,
         MatSelectFilterModule,
+        MatDialogModule,
 
         MatMenuModule,
     ],

@@ -1,8 +1,8 @@
-import { DOCUMENT } from "@angular/common";
-import { Inject, Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { HttpService } from "../../infrastructure/http/http.service";
-import { AuthProviderType } from "../providers/auth-provider-type.enum";
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpService } from '../../infrastructure/http/http.service';
+import { AuthProviderType } from '../providers/auth-provider-type.enum';
 
 @Injectable()
 export class AuthApiClient {
