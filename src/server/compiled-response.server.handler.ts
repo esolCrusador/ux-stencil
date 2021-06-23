@@ -1,16 +1,16 @@
-import { R_OK } from "constants";
-import { RequestHandler } from "express";
-import { access, writeFile, existsSync, mkdirSync } from "fs";
+import { R_OK } from 'constants';
+import { RequestHandler } from 'express';
+import { access, writeFile, mkdirSync } from 'fs';
 import * as path from 'path';
 
 type CompiledResponseHandler = (getCompiledHtmlPath: (requestPath: string) => string) => RequestHandler;
 const stylePrefix = 'rel="stylesheet" href="';
 
-const existsAsync = (path: string) => new Promise<boolean>(resolve =>
-  access(path, R_OK, (error => error ? resolve(false) : resolve(true)))
+const existsAsync = (requestPath: string) => new Promise<boolean>(resolve =>
+  access(requestPath, R_OK, (error => error ? resolve(false) : resolve(true)))
 );
-const writeFileAsync = (path: string, body: any) => new Promise<void>((resolve, reject) =>
-  writeFile(path, body, error => error ? reject(error) : resolve())
+const writeFileAsync = (requestPath: string, body: any) => new Promise<void>((resolve, reject) =>
+  writeFile(requestPath, body, error => error ? reject(error) : resolve())
 );
 
 function createDirectoryIfNeeded(filePath: string) {
@@ -24,6 +24,7 @@ function createDirectoryIfNeeded(filePath: string) {
     const curDir = path.resolve(baseDir, parentDir, childDir);
     try {
       mkdirSync(curDir);
+      // tslint:disable-next-line:no-console
       console.debug('Created directory', curDir);
     } catch (err) {
       if (err.code === 'EEXIST') { // curDir already exists!
@@ -53,6 +54,7 @@ export const compiledResponseHandler: CompiledResponseHandler = (getCompiledHtml
 
   const compiledHtmlPath = getCompiledHtmlPath(request.path);
 
+  // tslint:disable-next-line:no-console
   console.debug('CompiledHtml', compiledHtmlPath);
   const forceReload = request.query['force-reload'] === 'true';
 
@@ -67,8 +69,14 @@ export const compiledResponseHandler: CompiledResponseHandler = (getCompiledHtml
 
       createDirectoryIfNeeded(compiledHtmlPath);
       writeFileAsync(compiledHtmlPath, body)
-        .then(() => console.debug('File saved successfuly'))
-        .catch(error => console.error(error));
+        .then(() =>
+          // tslint:disable-next-line:no-console
+          console.debug('File saved successfuly')
+        )
+        .catch(error =>
+          // tslint:disable-next-line:no-console
+          console.error(error)
+        );
 
       sendResponse(body);
       return body;
@@ -78,6 +86,7 @@ export const compiledResponseHandler: CompiledResponseHandler = (getCompiledHtml
     return;
   }
 
+  // tslint:disable-next-line:no-console
   console.debug('Returning File', compiledHtmlPath);
   response.sendFile(compiledHtmlPath);
-}
+};

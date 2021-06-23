@@ -113,7 +113,7 @@ export class NumericComponent implements OnInit, OnDestroy {
             value = max;
 
         this.inputValue = this.getValueString(value);
-        if (this.value != value)
+        if (this.value !== value)
             this.valueChanged.next(value);
         this.value = value;
     }

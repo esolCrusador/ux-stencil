@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import { LoggingModule } from './logging.module';
 import { LOGGER_KIND } from './i-logger';
 import { ConsoleLogger } from './services/console.logger';

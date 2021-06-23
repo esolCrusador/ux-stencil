@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 @NgModule({
   imports: [
     AppModule,
-    
+
    InfrastructureServerModule,
    LoggingServerModule,
 

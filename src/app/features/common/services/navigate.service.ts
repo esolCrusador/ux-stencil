@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { NavigationEnd, Router } from "@angular/router";
-import { Subscription } from "rxjs";
-import { filter, first } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { filter, first } from 'rxjs/operators';
 
 @Injectable()
 export class NavigateService {

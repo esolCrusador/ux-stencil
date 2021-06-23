@@ -15,7 +15,7 @@ export class BrowserInfoServerService extends BrowserInfoService {
         this.browserData = {
             userAgent: request.headers.get('User-Agent'),
             languages: request.headers.get('Accept-Language').split(',')
-        }
+        };
     }
 
     public getLanguages(): readonly string[] {

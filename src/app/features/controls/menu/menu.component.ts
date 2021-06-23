@@ -5,6 +5,7 @@ import { MenuDirection } from './menu-direction.enum';
 import { IMenuItemModel } from './i-menu-item.model';
 import { ScrollService } from '../services/scroll.service';
 import { Router } from '@angular/router';
+import { ILogger } from '@ux-stencil/logging/i-logger';
 
 @Component({
     selector: 'my-menu',
@@ -25,6 +26,7 @@ export class MenuComponent implements OnInit {
         private readonly menuProvider: MenuProvider,
         private readonly scrollService: ScrollService,
         private readonly router: Router,
+        private readonly logger: ILogger,
     ) {
         this.menuStructure = new MenuStructureModel(this.menuProvider.getMenu());
     }
@@ -56,9 +58,9 @@ export class MenuComponent implements OnInit {
                 action();
             } catch (e) {
                 if (times <= 0)
-                    console.error(e);
+                    this.logger.error(e);
                 else {
-                    console.debug('Retry');
+                    this.logger.debug('Retry');
                     this.retryWithTimeout(action, times - 1, timeout);
                 }
             }

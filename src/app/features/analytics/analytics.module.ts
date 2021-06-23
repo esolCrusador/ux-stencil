@@ -1,5 +1,5 @@
-import { NgModule } from "@angular/core";
-import { IAnalyticsService } from "./i-analytics.service";
+import { NgModule } from '@angular/core';
+import { IAnalyticsService } from './i-analytics.service';
 import { AggregatedAnalyticsService } from './aggregated-analytics.service';
 
 @NgModule({

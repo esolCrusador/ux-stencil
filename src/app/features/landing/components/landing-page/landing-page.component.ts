@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IMenuItemModel } from '@ux-stencil/controls/menu/i-menu-item.model';
 import { MenuProvider } from '@ux-stencil/controls/services/menu.provider';
 import { LandingMenu } from '../../models/landing-menu.enum';
 import { IContactsModel } from '../../models/i-contacts.model';
@@ -39,8 +38,8 @@ export class LandingComponent implements OnInit {
 
     private setupSeo() {
         this.seoService.update(
-            'UX/UI Stencil', 
-            'Stencils for UX sketching on paper. A steel stencil designed for sketching iPone prototypes. Brainstorm your application ideas and share them in no time.', 
+            'UX/UI Stencil',
+            'Stencils for UX sketching on paper. A steel stencil designed for sketching iPone prototypes. Brainstorm your application ideas and share them in no time.',
             Gallery[GalleryImage.MainPhoto].url,
             Gallery[GalleryImage.MainBackground].url
         );

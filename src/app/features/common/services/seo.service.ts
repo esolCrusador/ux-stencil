@@ -47,3 +47,4 @@ export class SeoService {
         this.jsonLdService.setData(product);
     }
 }
+

@@ -1,6 +1,6 @@
-import { NgModule } from "@angular/core";
-import { ANALYTICS_TOOL } from "../i-analytics.service";
-import { GoogleAnalyticsService } from "./google-analytics.service";
+import { NgModule } from '@angular/core';
+import { ANALYTICS_TOOL } from '../i-analytics.service';
+import { GoogleAnalyticsService } from './google-analytics.service';
 
 @NgModule({
     providers: [

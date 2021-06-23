@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from "@angular/core";
-import { IFormGroup } from "@ux-stencil/common/forms/i-form-group";
-import { IFormLabels } from "@ux-stencil/common/forms/i-form-labels";
-import { IAddressModel } from "@ux-stencil/common/models/i-address.model";
-import { Observable, Subscription } from "rxjs";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { IFormGroup } from '@ux-stencil/common/forms/i-form-group';
+import { IFormLabels } from '@ux-stencil/common/forms/i-form-labels';
+import { IAddressModel } from '@ux-stencil/common/models/i-address.model';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
     selector: 'my-address-form',
@@ -30,7 +30,7 @@ export class AddressFormComponent implements OnInit, OnDestroy {
         state: 'State/Province',
         postalCode: 'Postal Code',
         country: 'Country'
-    }
+    };
 
     constructor(
         private readonly changeDetector: ChangeDetectorRef,

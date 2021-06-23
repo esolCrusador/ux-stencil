@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { MatDialog } from "@angular/material/dialog";
-import { Observable } from "rxjs";
-import { first } from "rxjs/operators";
-import { SignInComponent } from "../components/sign-in/sign-in.component";
+import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
+import { SignInComponent } from '../components/sign-in/sign-in.component';
 
 @Injectable()
 export class AuthActionsService {

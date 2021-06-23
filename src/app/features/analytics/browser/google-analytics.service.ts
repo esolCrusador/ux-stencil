@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { mapTo, tap } from "rxjs/operators";
-import { ScriptLoaderService } from "../../common/services/script-loader.service";
-import { ConfigurationService } from "../../configuration/configuration.service";
-import { IAnalyticsService } from "../i-analytics.service";
+import { Injectable } from '@angular/core';
+import { mapTo, tap } from 'rxjs/operators';
+import { ScriptLoaderService } from '../../common/services/script-loader.service';
+import { ConfigurationService } from '../../configuration/configuration.service';
+import { IAnalyticsService } from '../i-analytics.service';
 
 @Injectable()
 export class GoogleAnalyticsService implements IAnalyticsService {

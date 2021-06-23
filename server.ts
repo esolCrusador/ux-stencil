@@ -35,14 +35,15 @@ export function app(): express.Express {
   }));
 
   server.use((request, response, next) => {
-    if(!request.baseUrl){
+    if (!request.baseUrl) {
       const protocol = request.header('X-Forwarded-Proto') || request.protocol;
       const host = request.header('Host');
 
       request.baseUrl = `${protocol}://${host}`;
     }
+    // tslint:disable-next-line:no-console
     console.debug('Base Url', request.baseUrl);
-    
+
     next();
   });
 
@@ -60,6 +61,7 @@ export function run(): void {
   // Start up the Node server
   const server = app();
   server.listen(port, () => {
+    // tslint:disable-next-line:no-console
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }

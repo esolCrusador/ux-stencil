@@ -1,9 +1,9 @@
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { AuthGuard } from "@ux-stencil/auth/services/auth.guard";
-import { CartComponent } from "./components/cart/cart.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '@ux-stencil/auth/services/auth.guard';
+import { CartComponent } from './components/cart/cart.component';
 import { PurchaseComponent } from './components/purchase/purchase.component';
-import { ShippingComponent } from "./components/shipping/shipping.component";
+import { ShippingComponent } from './components/shipping/shipping.component';
 
 const routes: Routes = [
     {

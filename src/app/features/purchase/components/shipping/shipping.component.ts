@@ -1,14 +1,14 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
-import { CartModel } from "../../models/cart.model";
-import { CartItemModel } from "../../models/cart-item.model";
-import { concat, Observable, of, Subject, Subscription } from "rxjs";
-import { CartService } from "../../services/cart.service";
-import { first } from "rxjs/operators";
-import { IFormBuilder } from '@ux-stencil/common/forms/i-form.builder';
-import { FormBuilder, FormControl, Validators } from "@angular/forms";
-import { IFormGroup } from "@ux-stencil/common/forms/i-form-group";
-import { IFormLabels } from "@ux-stencil/common/forms/i-form-labels";
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { IAddressModel } from '@ux-stencil/common/models/i-address.model';
+import { IFormBuilder } from '@ux-stencil/common/forms/i-form.builder';
+import { concat, Observable, of, Subject, Subscription } from 'rxjs';
+import { CartModel } from '../../../purchase/models/cart.model';
+import { IFormGroup } from '@ux-stencil/common/forms/i-form-group';
+import { IFormLabels } from '@ux-stencil/common/forms/i-form-labels';
+import { CartService } from '@ux-stencil/purchase/services/cart.service';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
+import { CartItemModel } from '@ux-stencil/purchase/models/cart-item.model';
 
 interface IShippingData {
     fullName: string;
@@ -62,7 +62,7 @@ export class ShippingComponent implements OnInit, OnDestroy {
             billingAddress: 'Billing Address',
             instagram: 'Your Instagram',
             comments: 'Your Comments',
-        }
+        };
 
         this.form = this.formBuilder.group<IShippingData>({
             fullName: new FormControl('', Validators.required),
