@@ -24,12 +24,14 @@ export class AddressFormComponent implements OnInit, OnDestroy {
     @Input() public changed$: Observable<void>;
 
     public labels: IFormLabels<IAddressModel> = {
+        addressId: 'Address Id',
         address: 'Address',
         address2: 'Address2',
         city: 'City',
         state: 'State/Province',
         postalCode: 'Postal Code',
-        country: 'Country'
+        country: 'Country',
+        addressType: 'Address Type',
     };
 
     constructor(

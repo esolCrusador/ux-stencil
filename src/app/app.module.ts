@@ -9,6 +9,7 @@ import { CommonServicesModule } from './features/common/services/common-services
 import { ConfigurationModule } from './features/configuration/configuration.module';
 import { AnalyticsModule } from './features/analytics/analytics.module';
 import { AuthModule } from './features/auth/auth.module';
+import { UsersModule } from './features/users/users.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AuthModule } from './features/auth/auth.module';
     ConfigurationModule,
     AnalyticsModule,
     AuthModule,
+    UsersModule,
 
     CommonServicesModule,
   ],

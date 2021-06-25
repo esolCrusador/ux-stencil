@@ -3,7 +3,7 @@ import { AuthService } from '@ux-stencil/auth/services/auth.service';
 import { AuthProviderType } from '../../providers/auth-provider-type.enum';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Component({
     templateUrl: './sign-in.component.html',

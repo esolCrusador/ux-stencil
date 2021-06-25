@@ -9,6 +9,9 @@ import { CartService } from '@ux-stencil/purchase/services/cart.service';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { CartItemModel } from '@ux-stencil/purchase/models/cart-item.model';
+import { UsersService } from '@ux-stencil/users/services/users.service';
+import { UserModel } from '@ux-stencil/users/models/user.model';
+import { AddressType } from '@ux-stencil/common/models/address-type.enum';
 
 interface IShippingData {
     fullName: string;
@@ -40,6 +43,7 @@ export class ShippingComponent implements OnInit, OnDestroy {
 
     constructor(
         private readonly cartService: CartService,
+        private readonly userService: UsersService,
         formBuilder: FormBuilder,
     ) {
         this.subscription$ = new Subscription();
@@ -50,8 +54,8 @@ export class ShippingComponent implements OnInit, OnDestroy {
         this.cart$ = this.cartService.getCart$().pipe(first());
         this.changed$ = new Subject<void>();
 
-        const shippingAddress = this.createAddressForm();
-        const billingAddress = this.createAddressForm();
+        const shippingAddress = this.createAddressForm(AddressType.Shipping);
+        const billingAddress = this.createAddressForm(AddressType.Billing);
 
         this.labels = {
             fullName: 'Full Name',
@@ -82,6 +86,12 @@ export class ShippingComponent implements OnInit, OnDestroy {
             concat(of(useShippingAsBilling.value), useShippingAsBilling.valueChanges)
                 .subscribe(use => use ? billingAddress.disable() : billingAddress.enable())
         );
+
+        this.subscription$.add(
+            this.userService.getUser(true).subscribe(user => {
+                this.fillUserData(user);
+            })
+        );
     }
 
     public ngOnDestroy(): void {
@@ -99,14 +109,48 @@ export class ShippingComponent implements OnInit, OnDestroy {
         }
     }
 
-    private createAddressForm(): IFormGroup<IAddressModel> {
+    private fillUserData(user: UserModel) {
+        const shippingAddress = user.addresses.find(a => a.addressId === user.lastOrder?.shippingAddressId)
+            ?? user.addresses.find(a => a.addressType == AddressType.Shipping);
+        const billingAddress = user.addresses.find(a => a.addressId === user.lastOrder?.billingAddressId)
+            ?? user.addresses.find(a => a.addressType === AddressType.Billing);
+
+        this.form.patchValue({
+            fullName: user.fullName,
+            emailAddress: user.email,
+            instagram: user.instargam,
+            phoneNumber: user.phoneNumber,
+        });
+
+        if (shippingAddress)
+            this.fillAddressData(this.form.controls.shippingAddress as IFormGroup<IAddressModel>, shippingAddress);
+
+        if (billingAddress)
+            this.fillAddressData(this.form.controls.billingAddress as IFormGroup<IAddressModel>, billingAddress);
+    }
+
+    private fillAddressData(form: IFormGroup<IAddressModel>, address: IAddressModel) {
+        form.patchValue({
+            addressId: address.addressId,
+            address: address.address,
+            address2: address.address2,
+            city: address.city,
+            state: address.state,
+            country: address.country,
+            postalCode: address.postalCode,
+        });
+    }
+
+    private createAddressForm(addressType: AddressType): IFormGroup<IAddressModel> {
         return this.formBuilder.group<IAddressModel>({
+            addressId: new FormControl(null, Validators.required),
             address: new FormControl('', Validators.required),
             address2: new FormControl(''),
             city: new FormControl('', Validators.required),
             state: new FormControl(''),
             country: new FormControl('', Validators.required),
-            postalCode: new FormControl('', Validators.required)
+            postalCode: new FormControl('', Validators.required),
+            addressType: new FormControl(addressType, Validators.required)
         });
     }
 
