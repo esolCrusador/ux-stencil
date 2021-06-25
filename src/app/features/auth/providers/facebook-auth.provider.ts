@@ -81,7 +81,9 @@ export class FacebookAuthProvider extends IAuthProvider {
                     observer.next(response.authResponse.accessToken);
                     observer.complete();
                 } else {
-                    observer.error(response.status);
+                    observer.next(null);
+                    observer.complete();
+                    this.logger.error(response.status);
                 }
             });
         });

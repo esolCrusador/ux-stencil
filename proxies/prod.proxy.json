@@ -1,7 +1,6 @@
 {
     "/api": {
-      "target": "http://localhost:28418",
-      "pathRewrite": { "^/api": "" },
+      "target": "http://ux-stencil.net",
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true

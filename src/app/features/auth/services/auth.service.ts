@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { AuthApiClient } from '../api-clients/auth.api-client';
 import { AuthProviderFactory } from '../providers/auth-provider.factory';
 import { CookieService } from '../../infrastructure/cookies/cookie.service';
@@ -18,6 +18,7 @@ export class AuthService {
     private readonly authProviderFactory: AuthProviderFactory,
     private readonly authApiClient: AuthApiClient,
     private readonly logger: ILogger,
+    private readonly ngZone: NgZone,
   ) {
   }
 
@@ -45,9 +46,20 @@ export class AuthService {
     return this.authProviderFactory.initializeAll();
   }
 
-  public signin(authProviderType: AuthProviderType): Observable<void> {
+  public signin(authProviderType: AuthProviderType): Observable<boolean> {
     const provider = this.authProviderFactory.getProvider(authProviderType);
-    return provider.initialize().pipe(concatMap(() => provider.signin()));
+    const isAuthenticated$ = provider.initialize().pipe(
+      concatMap(() => provider.signin()),
+      map(() => !!this.getUserInfo())
+    );
+
+    return new Observable<boolean>(observer$ => {
+      return isAuthenticated$.subscribe({
+        next: result => this.ngZone.run(() => observer$.next(result)),
+        error: error => this.ngZone.run(() => observer$.error(error)),
+        complete: () => this.ngZone.run(() => observer$.complete())
+      })
+    });
   }
 
   public signout(): Observable<void> {

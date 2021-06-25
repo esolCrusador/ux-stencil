@@ -50,7 +50,10 @@ export abstract class IAuthProvider {
     protected abstract load(): Observable<void>;
 
     protected finishAuthentication(token: string): Observable<void> {
-        return this.authApiClient.finishAuthentication(this.providerType, token);
+        if (token)
+            return this.authApiClient.finishAuthentication(this.providerType, token);
+            
+        return of(undefined);
     }
 
     protected fallbackLogin(): Observable<void> {

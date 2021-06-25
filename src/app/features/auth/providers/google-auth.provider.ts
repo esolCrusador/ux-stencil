@@ -74,7 +74,11 @@ export class GoogleAuthProvider extends IAuthProvider {
             this.googleAuth.signIn().then(user => {
                 observer.next(user.getAuthResponse(true).id_token);
                 observer.complete();
-            }).catch(error => observer.error(error));
+            }).catch(error => {
+                observer.next(null);
+                observer.complete();
+                this.logger.error(error);
+            });
         });
     }
 }
