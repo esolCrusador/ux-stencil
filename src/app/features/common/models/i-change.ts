@@ -4,7 +4,7 @@ export enum ChangeType {
     Deleted
 }
 
-export interface IChange<TModel>{
+export interface IChange<TModel> {
     type: ChangeType;
     value: TModel;
 }

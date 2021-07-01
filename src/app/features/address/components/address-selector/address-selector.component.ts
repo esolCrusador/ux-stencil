@@ -1,13 +1,12 @@
-import { ChangeDetectionStrategy, Component, forwardRef, Input, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, forwardRef, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatDialog } from "@angular/material/dialog";
-import { MatRadioChange } from "@angular/material/radio";
-import { IdName } from "@ux-stencil/common/models/id-name";
-import { ILogger } from "@ux-stencil/logging/i-logger";
-import { Observable } from "rxjs";
-import { IAddressModel } from "../../models/i-address.model";
-import { AddressService } from "../../services/address.service";
-import { AddressModalComponent } from "../address-modal/address-modal.component";
+import { MatDialog } from '@angular/material/dialog';
+import { MatRadioChange } from '@angular/material/radio';
+import { ILogger } from '@ux-stencil/logging/i-logger';
+import { Observable } from 'rxjs';
+import { IAddressModel } from '../../models/i-address.model';
+import { AddressService } from '../../services/address.service';
+import { AddressModalComponent } from '../address-modal/address-modal.component';
 
 @Component({
     selector: 'my-address-selector',
@@ -49,7 +48,7 @@ export class AddressSelectorComponent implements OnInit, ControlValueAccessor {
     public addAddress(): void {
         this.matDialog.open<AddressModalComponent>(AddressModalComponent, { data: { address: null } })
             .afterClosed().subscribe({
-                next: (address: IAddressModel) => { if (address) { this.value = address.addressId } },
+                next: (address: IAddressModel) => { if (address) { this.value = address.addressId; } },
                 error: error => this.logger.error(error)
             });
     }

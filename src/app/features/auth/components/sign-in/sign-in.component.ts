@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, NgZone, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { AuthService } from '@ux-stencil/auth/services/auth.service';
 import { AuthProviderType } from '../../providers/auth-provider-type.enum';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -34,7 +34,7 @@ export class SignInComponent implements OnDestroy {
             this.authService.signin(providerType).pipe(
                 tap(isSignedIn => {
                     if (isSignedIn)
-                        this.close(true)
+                        this.close(true);
                     else {
                         this.inProgress = false;
                         this.changeDetector.markForCheck();

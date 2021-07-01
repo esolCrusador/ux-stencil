@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { AuthService } from "@ux-stencil/auth/services/auth.service";
-import { concat, Observable, of, Subject } from "rxjs";
-import { map, mapTo, publishReplay, refCount, switchMap, tap } from "rxjs/operators";
-import { IAddressModel } from "../models/i-address.model";
-import { AddressApiClient } from "./address.api-client";
+import { Injectable } from '@angular/core';
+import { AuthService } from '@ux-stencil/auth/services/auth.service';
+import { concat, Observable, of, Subject } from 'rxjs';
+import { map, mapTo, publishReplay, refCount, switchMap, tap } from 'rxjs/operators';
+import { IAddressModel } from '../models/i-address.model';
+import { AddressApiClient } from './address.api-client';
 import { ChangeType, IChange } from '@ux-stencil/common/models/i-change';
-import { IMap } from "@ux-stencil/common/models/i-map";
-import { IdName } from "@ux-stencil/common/models/id-name";
+import { IMap } from '@ux-stencil/common/models/i-map';
+import { IdName } from '@ux-stencil/common/models/id-name';
 
 @Injectable()
 export class AddressService {

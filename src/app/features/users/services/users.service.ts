@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { concat, Observable, of } from "rxjs";
-import { map } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { concat, Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { AuthService } from '../../auth/services/auth.service';
-import { UsersApiClient } from "../api-clients/users.api-client";
-import { UserModel } from "../models/user.model";
+import { UsersApiClient } from '../api-clients/users.api-client';
+import { UserModel } from '../models/user.model';
 
 @Injectable()
 export class UsersService {

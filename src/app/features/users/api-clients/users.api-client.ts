@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { HttpService } from "../../infrastructure/http/http.service";
-import { IUserModel } from "../models/i-user.model";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpService } from '../../infrastructure/http/http.service';
+import { IUserModel } from '../models/i-user.model';
 
 @Injectable()
 export class UsersApiClient {
@@ -10,7 +10,7 @@ export class UsersApiClient {
     ) {
     }
 
-    public getUser(): Observable<IUserModel>{
+    public getUser(): Observable<IUserModel> {
         return this.httpService.get('api/users');
     }
 }

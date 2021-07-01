@@ -52,7 +52,7 @@ export abstract class IAuthProvider {
     protected finishAuthentication(token: string): Observable<void> {
         if (token)
             return this.authApiClient.finishAuthentication(this.providerType, token);
-            
+
         return of(undefined);
     }
 

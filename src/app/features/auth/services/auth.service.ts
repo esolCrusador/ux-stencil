@@ -47,14 +47,15 @@ export class AuthService {
     if (this.userInfo$.value === undefined)
       this.getUserInfo();
 
-    return this.userInfo$
+    return this.userInfo$;
   }
 
   public isAuthenticated$(): Observable<boolean> {
     return this.getUserInfo$().pipe(
       map(userInfo => !!userInfo),
       distinctUntilChanged()
-    );}
+    );
+  }
 
   public refreshUserInfo(): Observable<UserInfoModel> {
     return this.authApiClient.refresh().pipe(
@@ -78,7 +79,7 @@ export class AuthService {
         next: result => this.ngZone.run(() => observer$.next(result)),
         error: error => this.ngZone.run(() => observer$.error(error)),
         complete: () => this.ngZone.run(() => observer$.complete())
-      })
+      });
     });
   }
 
