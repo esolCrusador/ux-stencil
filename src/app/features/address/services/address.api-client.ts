@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { IdName } from '@ux-stencil/common/models/id-name';
 import { HttpService } from '@ux-stencil/infrastructure/http/http.service';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { IAddressModel } from '../models/i-address.model';
 
 @Injectable()
@@ -17,13 +16,11 @@ export class AddressApiClient {
     }
 
     public addAddress(address: IAddressModel): Observable<IAddressModel> {
-        return this.httpService.post<number>('/api/address', address).pipe(
-            map(addressId => ({ ...address, addressId: addressId }))
-        );
+        return this.httpService.post<IAddressModel>('/api/address', address);
     }
 
-    public updateAddress(address: IAddressModel): Observable<void> {
-        return this.httpService.put(`/api/address/${address.addressId}`, address);
+    public updateAddress(address: IAddressModel): Observable<IAddressModel> {
+        return this.httpService.put<IAddressModel>(`/api/address/${address.addressId}`, address);
     }
 
     public getAddresses(): Observable<IAddressModel[]> {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '@ux-stencil/auth/services/auth.service';
 import { concat, Observable, of, Subject } from 'rxjs';
-import { map, mapTo, publishReplay, refCount, switchMap, tap } from 'rxjs/operators';
+import { map, publishReplay, refCount, switchMap, tap } from 'rxjs/operators';
 import { IAddressModel } from '../models/i-address.model';
 import { AddressApiClient } from './address.api-client';
 import { ChangeType, IChange } from '@ux-stencil/common/models/i-change';
@@ -58,7 +58,6 @@ export class AddressService {
         if (address.addressId)
             return this.addressApiClient.updateAddress(address).pipe(
                 tap(() => this.addressChanges$.next({ type: ChangeType.Updated, value: address })),
-                mapTo(address)
             );
 
         return this.addressApiClient.addAddress(address).pipe(
@@ -81,21 +80,23 @@ export class AddressService {
                         switchMap(addresses =>
                             concat(of(null as IChange<IAddressModel>), this.addressChanges$).pipe(
                                 map(change => {
-                                    if (!change)
-                                        return addresses;
+                                    if (change)
+                                        switch (change.type) {
+                                            case ChangeType.Added:
+                                                addresses.push(change.value);
+                                                break;
+                                            case ChangeType.Updated:
+                                                addresses[addresses.findIndex(a => a.addressId === change.value.addressId)] = change.value;
+                                                break;
+                                            case ChangeType.Deleted:
+                                                const indexToRemove = addresses.findIndex(a => a.addressId === change.value.addressId);
+                                                addresses.splice(indexToRemove, 1);
+                                                break;
+                                            default:
+                                                throw new Error(`Not supported ChangeType.${ChangeType[change.type]}`);
+                                        }
 
-                                    switch (change.type) {
-                                        case ChangeType.Added:
-                                            return [...addresses, change.value];
-                                        case ChangeType.Updated:
-                                            addresses = [...addresses];
-                                            addresses[addresses.findIndex(a => a.addressId === change.value.addressId)] = change.value;
-                                            return addresses;
-                                        case ChangeType.Deleted:
-                                            return addresses.filter(a => a.addressId !== change.value.addressId);
-                                        default:
-                                            throw new Error(`Not supported ChangeType.${ChangeType[change.type]}`);
-                                    }
+                                    return [...addresses];
                                 })
                             )
                         )

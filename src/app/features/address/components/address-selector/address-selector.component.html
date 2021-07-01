@@ -6,9 +6,9 @@
                     {{ getCountry$(address.countryId) | async }}, {{ address.city }}, {{ address.address }} <span class="postal-code">{{ address.postalCode }}</span>
                 </mat-radio-button>
                 <div class="address-item-actions">
-                    <span class="action" (click)="onEdit(address)">Edit</span>
+                    <span class="action" (click)="onEdit(address, $event)">Edit</span>
                     &nbsp;
-                    <i class="action icon-remove" (click)="onDelete(address)"></i>
+                    <i class="action icon-remove" (click)="onDelete(address, $event)"></i>
                 </div>
             </div>
         </ng-container>

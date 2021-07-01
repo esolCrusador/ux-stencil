@@ -31,6 +31,8 @@ export class AddressModalComponent implements OnDestroy {
     }
 
     public onAddressUpdated(address: IAddressModel) {
+        this.disabled = true;
+
         this.subscription$.add(
             this.addressService.createOrUpdateAddress(address).subscribe({
                 next: updatedAddress => { this.dialog.close(updatedAddress); },

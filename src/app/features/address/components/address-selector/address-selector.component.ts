@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, forwardRef, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatRadioChange } from '@angular/material/radio';
@@ -32,6 +32,7 @@ export class AddressSelectorComponent implements OnInit, ControlValueAccessor {
     constructor(
         private readonly addressService: AddressService,
         private readonly matDialog: MatDialog,
+        private readonly changeDetector: ChangeDetectorRef,
         private readonly logger: ILogger,
     ) {
 
@@ -48,7 +49,12 @@ export class AddressSelectorComponent implements OnInit, ControlValueAccessor {
     public addAddress(): void {
         this.matDialog.open<AddressModalComponent>(AddressModalComponent, { data: { address: null } })
             .afterClosed().subscribe({
-                next: (address: IAddressModel) => { if (address) { this.value = address.addressId; } },
+                next: (address: IAddressModel) => {
+                    if (address) {
+                        this.setValue(address.addressId);
+                        this.changeDetector.markForCheck();
+                    }
+                },
                 error: error => this.logger.error(error)
             });
     }
@@ -62,7 +68,7 @@ export class AddressSelectorComponent implements OnInit, ControlValueAccessor {
     }
 
     public registerOnTouched(onTouchedDelegate: () => void): void {
-        this.onChangeDelegate = onTouchedDelegate;
+        this.onTouchedDelegate = onTouchedDelegate;
     }
 
     public setDisabledState(isDisabled: boolean): void {
@@ -70,19 +76,30 @@ export class AddressSelectorComponent implements OnInit, ControlValueAccessor {
     }
 
     public onSelectionChanged(change: MatRadioChange): void {
-        this.value = change.value;
-        this.onChangeDelegate && this.onChangeDelegate(change.value);
-        this.onTouchedDelegate && this.onTouchedDelegate();
+        this.setValue(change.value);
     }
 
-    public onEdit(address: IAddressModel): void {
+    public onEdit(address: IAddressModel, event: Event): void {
+        event.stopPropagation();
+
         this.matDialog.open<AddressModalComponent>(AddressModalComponent, { data: { address: address } })
             .afterClosed().subscribe({ error: error => this.logger.error(error) });
     }
 
-    public onDelete(address: IAddressModel): void {
+    public onDelete(address: IAddressModel, event: Event): void {
+        event.stopPropagation();
+
+        if (address.addressId === this.value)
+            this.setValue(null);
+
         this.addressService.deleteAddress(address).subscribe({
             error: error => this.logger.error(error)
         });
+    }
+
+    private setValue(value: number): void {
+        this.value = value;
+        this.onChangeDelegate && this.onChangeDelegate(value);
+        this.onTouchedDelegate && this.onTouchedDelegate();
     }
 }
