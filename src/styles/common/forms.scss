@@ -1,11 +1,25 @@
 form {
+    .form-block {
+        border-bottom: 1px solid $gridBorderColor;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+
+        &.last {
+            border-bottom: none;
+        }
+    }
+
+    .mat-form-field {
+        width: 100%;
+    }
+
     .two-controls {
         display: flex;
         flex-grow: 1;
 
         > * {
             flex-grow: 1;
-            
+
             &:first-child {
                 padding-right: 10px;
             }

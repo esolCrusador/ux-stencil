@@ -5,19 +5,19 @@ import { ControlsModule } from '@ux-stencil/controls/controls.module';
 import { RouterModule } from '@angular/router';
 import { PurchaseComponent } from './components/purchase/purchase.component';
 import { ShippingComponent } from './components/shipping/shipping.component';
-import { AddressFormComponent } from './components/address-form/address-form.component';
+import { AddressModule } from '@ux-stencil/address/address.module';
 
 @NgModule({
     imports: [
         ControlsModule,
         RouterModule,
-        PurchaseRoutingModule
+        PurchaseRoutingModule,
+        AddressModule,
     ],
     declarations: [
         PurchaseComponent,
         CartComponent,
         ShippingComponent,
-        AddressFormComponent,
     ]
 })
 export class PurchaseModule {

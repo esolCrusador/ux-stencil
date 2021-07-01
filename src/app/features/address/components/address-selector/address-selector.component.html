@@ -1,0 +1,22 @@
+<div class="address-selector">
+    <mat-radio-group [value]="value" (change)="onSelectionChanged($event)">
+        <ng-container *ngIf="addresses$ | async as addresses">
+            <div *ngFor="let address of addresses" class="address-item">
+                <mat-radio-button [value]="address.addressId">
+                    {{ getCountry$(address.countryId) | async }}, {{ address.city }}, {{ address.address }} <span class="postal-code">{{ address.postalCode }}</span>
+                </mat-radio-button>
+                <div class="address-item-actions">
+                    <span class="action" (click)="onEdit(address)">Edit</span>
+                    &nbsp;
+                    <i class="action icon-remove" (click)="onDelete(address)"></i>
+                </div>
+            </div>
+        </ng-container>
+    </mat-radio-group>
+    <div class="add-address">
+        <button class="button primary" (click)="addAddress()">
+            <i class="icon-plus"></i>
+            Add Address
+        </button>
+    </div>
+</div>

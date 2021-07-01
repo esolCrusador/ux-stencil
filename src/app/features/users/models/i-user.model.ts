@@ -1,4 +1,4 @@
-import { IAddressModel } from '../../common/models/i-address.model';
+import { IAddressModel } from '../../address/models/i-address.model';
 import { ILastOrderModel } from './i-last-order.model';
 
 export interface IUserModel {

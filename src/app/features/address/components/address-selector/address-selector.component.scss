@@ -1,0 +1,20 @@
+.address-selector {
+    .address-item {
+        padding-bottom: 10px;
+        position: relative;
+
+        .postal-code {
+            font-size: 0.75em;
+        }
+
+        .address-item-actions {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+    .add-address {
+        padding-top: 15px;
+        width: 50%;
+    }
+}

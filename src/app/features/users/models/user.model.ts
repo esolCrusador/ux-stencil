@@ -1,5 +1,5 @@
 import { UserInfoModel } from "../../auth/models/user-info.model";
-import { IAddressModel } from "../../common/models/i-address.model";
+import { IAddressModel } from "../../address/models/i-address.model";
 import { ILastOrderModel } from "./i-last-order.model";
 import { IUserModel } from "./i-user.model";
 

@@ -23,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectFilterModule } from 'mat-select-filter';
 
 @NgModule({
@@ -39,6 +40,7 @@ import { MatSelectFilterModule } from 'mat-select-filter';
         MatCheckboxModule,
         MatSelectModule,
         MatSelectFilterModule,
+        MatRadioModule,
         MatDialogModule,
 
         MatMenuModule,
@@ -84,6 +86,7 @@ import { MatSelectFilterModule } from 'mat-select-filter';
         MatCheckboxModule,
         MatSelectModule,
         MatSelectFilterModule,
+        MatRadioModule,
         MatDialogModule,
 
         MatMenuModule,

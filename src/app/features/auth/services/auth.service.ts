@@ -3,15 +3,16 @@ import { AuthApiClient } from '../api-clients/auth.api-client';
 import { AuthProviderFactory } from '../providers/auth-provider.factory';
 import { CookieService } from '../../infrastructure/cookies/cookie.service';
 import { ILogger } from '../../logging/i-logger';
-import { forkJoin, Observable } from 'rxjs';
+import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 import { IAuthProvider } from '../providers/i-auth.provider';
 import { AuthProviderType } from '../providers/auth-provider-type.enum';
-import { concatMap, map, mapTo } from 'rxjs/operators';
+import { concatMap, distinctUntilChanged, map, mapTo } from 'rxjs/operators';
 import { IUserInfoShortModel } from '../models/i-user-info-sort.model';
 import { UserInfoModel } from '../models/user-info.model';
 
 @Injectable()
 export class AuthService {
+  private userInfo$: BehaviorSubject<UserInfoModel>;
 
   constructor(
     private readonly cookiesService: CookieService,
@@ -20,12 +21,15 @@ export class AuthService {
     private readonly logger: ILogger,
     private readonly ngZone: NgZone,
   ) {
+    this.userInfo$ = new BehaviorSubject<UserInfoModel>(undefined);
   }
 
   public getUserInfo(): UserInfoModel {
     const cookie = this.cookiesService.getCookie('Inf');
-    if (!cookie)
+    if (!cookie) {
+      this.userInfo$.next(null);
       return null;
+    }
 
     const formattedJson = cookie.replace(/[{,] *([a-zA-Z]\w*):/g, (str, propName) => {
       return str.replace(propName, `"${propName}"`);
@@ -33,8 +37,24 @@ export class AuthService {
 
     const info = JSON.parse(formattedJson) as IUserInfoShortModel;
 
-    return new UserInfoModel(info);
+    const model = new UserInfoModel(info);
+    this.userInfo$.next(model);
+
+    return model;
   }
+
+  public getUserInfo$(): Observable<UserInfoModel> {
+    if (this.userInfo$.value === undefined)
+      this.getUserInfo();
+
+    return this.userInfo$
+  }
+
+  public isAuthenticated$(): Observable<boolean> {
+    return this.getUserInfo$().pipe(
+      map(userInfo => !!userInfo),
+      distinctUntilChanged()
+    );}
 
   public refreshUserInfo(): Observable<UserInfoModel> {
     return this.authApiClient.refresh().pipe(
