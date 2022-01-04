@@ -73,6 +73,7 @@ export class AddressSelectorComponent implements OnInit, ControlValueAccessor {
 
     public setDisabledState(isDisabled: boolean): void {
         this.disabled = isDisabled;
+        this.changeDetector.detectChanges();
     }
 
     public onSelectionChanged(change: MatRadioChange): void {

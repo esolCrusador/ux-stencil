@@ -4,7 +4,7 @@ import { ICartItem } from './i-cart-item';
 export class CartItemModel implements ICartItem {
     private _quantity: number;
 
-    public readonly id: number;
+    public readonly itemId: number;
     public readonly image: IImageModel;
     public readonly name: string;
     public get quantity(): number {
@@ -13,7 +13,7 @@ export class CartItemModel implements ICartItem {
     public readonly cost: number;
 
     constructor(cartItem: ICartItem) {
-        this.id = cartItem.id;
+        this.itemId = cartItem.itemId;
         this.image = cartItem.image;
         this.name = cartItem.name;
         this._quantity = cartItem.quantity;
@@ -22,7 +22,7 @@ export class CartItemModel implements ICartItem {
 
     public toCartItem(): ICartItem {
         return {
-            id: this.id,
+            itemId: this.itemId,
             image: this.image,
             name: this.name,
             quantity: this.quantity,

@@ -122,7 +122,8 @@
         </div>
         <div class="form-block last">
             <div class="grid-actions">
-                <button type="submit" class="order-button button primary" (click)="confirmOrder()">Confirm Order</button>
+                {{ form.disabled || inProgress }}
+                <button type="submit" [disabled]="form.disabled || inProgress" class="order-button button primary" (click)="confirmOrder()">Confirm Order</button>
             </div>
         </div>
     </form>

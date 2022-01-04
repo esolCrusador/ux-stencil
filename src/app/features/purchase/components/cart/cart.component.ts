@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
     }
 
     public trackCartItem(index: number, item: CartItemModel) {
-        return item.id;
+        return item.itemId;
     }
 
     public quantityChanged(cart: CartModel, item: CartItemModel, quantity: number) {

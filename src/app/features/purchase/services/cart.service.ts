@@ -15,7 +15,7 @@ export class CartService {
         const cartFromStorage: ICart = JSON.parse(localStorage.getItem('cart'));
         const cart = cartFromStorage ?? {
             items: [new CartItemModel({
-                id: 1,
+                itemId: 1,
                 image: Gallery[GalleryImage.StencilItem],
                 name: 'UX Stencil',
                 quantity: 1,

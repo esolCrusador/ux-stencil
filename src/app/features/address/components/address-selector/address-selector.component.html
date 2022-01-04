@@ -1,4 +1,6 @@
 <div class="address-selector">
+    <div *ngIf="disabled" class="disabled-overlay">
+    </div>
     <mat-radio-group [value]="value" (change)="onSelectionChanged($event)">
         <ng-container *ngIf="addresses$ | async as addresses">
             <div *ngFor="let address of addresses" class="address-item">
