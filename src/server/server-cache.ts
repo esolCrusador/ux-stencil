@@ -21,7 +21,7 @@ export class ServerCache {
     ) {
         if (!timeMachine)
             timeMachine = {
-                getDate : () => new Date(),
+                getDate: () => new Date(),
                 createInterval: (action, period) => {
                     const interval = setInterval(() => action(), period);
                     return () => clearInterval(interval);
@@ -49,7 +49,10 @@ export class ServerCache {
             cacheEntry.createValue$ = create();
             cacheEntry.createValue$.then(value => {
                 this.updateEntry(cacheEntry, value, expiration, renew);
-            }).catch(error => console.error(error));
+            }).catch(error =>
+                // tslint:disable-next-line:no-console
+                console.error(error)
+            );
         }
 
         return cacheEntry.value;

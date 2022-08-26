@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IMenuItemModel } from '@ux-stencil/controls/menu/i-menu-item.model';
 import { MenuProvider } from '@ux-stencil/controls/services/menu.provider';
 import { LandingMenu } from '../../models/landing-menu.enum';
 import { IContactsModel } from '../../models/i-contacts.model';
@@ -24,24 +23,12 @@ export class LandingComponent implements OnInit {
         uxJamsGroup: 'designers_meetups'
     };
 
-    private readonly menu: { [itemId in keyof typeof LandingMenu]: string } = {
-        Product: 'Product',
-        Advantages: 'Advantages',
-        UxJams: 'UX jam events',
-        Order: 'Order'
-    };
-
     constructor(
         private readonly menuProvider: MenuProvider,
         private readonly analyticsService: IAnalyticsService,
         private readonly seoService: SeoService,
     ) {
-        const menuItems: IMenuItemModel[] = Object.keys(this.menu)
-            .reduce((agg, itemId: keyof typeof LandingMenu) => {
-                agg.push({ id: LandingMenu[itemId], title: this.menu[itemId] });
-                return agg;
-            }, [] as IMenuItemModel[]);
-        this.menuProvider.setMenu(menuItems);
+        this.menuProvider.initalize();
     }
 
     public ngOnInit(): void {
@@ -51,8 +38,8 @@ export class LandingComponent implements OnInit {
 
     private setupSeo() {
         this.seoService.update(
-            'UX/UI Stencil', 
-            'Stencils for UX sketching on paper. A steel stencil designed for sketching iPhone prototypes. Brainstorm your application ideas and share them in no time.', 
+            'UX/UI Stencil',
+            'Stencils for UX sketching on paper. A steel stencil designed for sketching iPone prototypes. Brainstorm your application ideas and share them in no time.',
             Gallery[GalleryImage.MainPhoto].url,
             Gallery[GalleryImage.MainBackground].url
         );

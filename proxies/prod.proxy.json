@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "http://ux-stencil.net",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+    }
+  }
+  

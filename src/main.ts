@@ -23,5 +23,8 @@ if (environment.production) {
 
 document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic(providers).bootstrapModule(AppBrowserModule)
-    .catch(err => console.error(err));
+    .catch(err =>
+      // tslint:disable-next-line:no-console
+      console.error(err)
+    );
 });

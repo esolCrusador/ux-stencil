@@ -1,0 +1,60 @@
+<form [formGroup]="form">
+    <div class="form-block">
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>{{ labels.address }}</mat-label>
+                <input matInput type="text" formControlName="address" />
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>{{ labels.address2 }}</mat-label>
+                <input matInput type="text" formControlName="address2" />
+            </mat-form-field>
+        </div>
+        <div class="two-controls">
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ labels.city }}</mat-label>
+                    <input matInput type="text" formControlName="city" />
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ labels.state }}</mat-label>
+                    <input matInput type="text" formControlName="state" />
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="two-controls">
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ labels.postalCode }}</mat-label>
+                    <input matInput type="text" name="zipCode" formControlName="postalCode" />
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ labels.countryId }}</mat-label>
+                    <mat-select formControlName="countryId">
+                        <ng-container *ngIf="countries$ | async as countries">
+                            <mat-select-filter [array]="countries" [displayMember]="'name'" (filteredReturn)="onFiltered($event)">
+                            </mat-select-filter>
+                            <mat-option *ngFor="let country of (filteredCountries || countries)" [value]="country.id">
+                                {{ country.name }}
+                            </mat-option>
+                        </ng-container>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="form-block last two-controls">
+        <div>
+            <button type="submit" class="button" (click)="cancel()" [disabled]="disabled"> Cancel </button>
+        </div>
+        <div>
+            <button type="submit" class="button primary" (click)="save()" [disabled]="disabled"> {{ this.value?.addressId ? 'Update' : 'Create' }} </button>
+        </div>
+    </div>
+</form>

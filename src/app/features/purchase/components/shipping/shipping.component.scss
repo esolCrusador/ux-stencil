@@ -1,0 +1,9 @@
+.shipping-component {
+    .items-summary {
+        @include dynamicSize(14, 18);
+
+        .right {
+            text-align: right;
+        }
+    }
+}

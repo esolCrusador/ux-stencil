@@ -1,0 +1,57 @@
+<div class="cart-component section">
+    <div class="page-name">
+        <h3>
+            Shopping Cart
+        </h3>
+    </div>
+    <div class="grid-component items-container">
+        <div class="grid-header">
+            <div class="column xl">
+                ITEMS
+            </div>
+            <div class="column m">
+                QUANTITY
+            </div>
+            <div class="column xs">
+            </div>
+        </div>
+        <ng-container *ngIf="cart$ | async as cart">
+            <div class="grid-content">
+                <div *ngFor="let item of cart.items; trackBy:trackCartItem" class="grid-row">
+                    <div class="column xl">
+                        <div class="item-card">
+                            <div class="item-image">
+                                <img [src]="item.image.url" [alt]="item.image.description" />
+                            </div>
+                            <div class="item-properties">
+                                <div class="item-name">
+                                    {{ item.name }}
+                                </div>
+                                <div class="item-price">
+                                    {{ item.cost | moneyPipe:cart.currency }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column m">
+                        <my-numeric [value]="item.quantity" [min]="0" [max]="50" (valueChanged)="quantityChanged(cart, item, $event)"></my-numeric>
+                    </div>
+                    <div class="column xs remove">
+                        <a (click)="remove(cart, item)"> <i class="icon-remove"></i> </a>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-footer">
+                <h3>
+                    Order Total:
+                </h3>
+                <h3>
+                    {{ cart.total | moneyPipe:cart.currency }}
+                </h3>
+            </div>
+            <div class="grid-actions">
+                <button type="submit" class="order-button button primary" (click)="confirmOrder()" [disabled]="cart.total <= 0">Confirm Order</button>
+            </div>
+        </ng-container>
+    </div>
+</div>

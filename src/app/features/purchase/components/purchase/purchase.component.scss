@@ -1,0 +1,63 @@
+@import "../../../mixins.scss";
+
+$topPanelHeight: 66px;
+%menuIcons {
+    position: absolute;
+    height: $topPanelHeight;
+    line-height: $topPanelHeight;
+
+    @include dynamicSize(16, 24);
+    font-weight: 600;
+}
+
+#purchase-component {
+    #top-panel {
+        position: relative;
+
+        #page-header {
+            height: $topPanelHeight;
+            line-height: $topPanelHeight;
+            text-align: center;
+
+            border-bottom: $blockLineBreak 2px solid;
+        }
+
+        #right-menu {
+            @extend %menuIcons;
+            top: 0;
+            right: 0;
+        }
+
+        #main-menu {
+            .collapsed {
+                left: 0;
+                top: 0;
+                @extend %menuIcons;
+            }
+            .expanded {
+                display: flex;
+                justify-content: space-between;
+                height: 100px;
+                align-items: flex-end;
+                padding-bottom: 16px;
+
+                * {
+                    flex-grow: 1;
+                }
+                my-menu {
+                    flex-grow: 2;
+                }
+
+                border-bottom: $blockLineBreak 2px solid;
+            }
+        }
+    }
+
+    .content {
+        max-width: 560px;
+        
+        h3 {
+            padding: 1em 0;
+        }
+    }
+}

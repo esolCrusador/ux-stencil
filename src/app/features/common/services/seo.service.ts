@@ -1,6 +1,6 @@
-import { APP_BASE_HREF } from "@angular/common";
-import { Inject, Injectable } from "@angular/core";
-import { Meta } from "@angular/platform-browser";
+import { APP_BASE_HREF } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { SeoSocialShareService, JsonLdService } from 'ngx-seo';
 
 @Injectable()
@@ -44,6 +44,7 @@ export class SeoService {
                     name: 'UX/UI Designers, Developers'
                 })
         });
-        this.jsonLdService.setData(product)
+        this.jsonLdService.setData(product);
     }
 }
+

@@ -5,6 +5,8 @@ import { LandingComponent } from './features/landing/components/landing-page/lan
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'admin', loadChildren: () => import('./features/admin/admin.module').then(module => module.AdminModule) },
+  { path: 'purchase', loadChildren: () => import('./features/purchase/purchase.module').then(module => module.PurchaseModule) },
+  { path: 'legal', loadChildren: () => import('./features/legal/legal.module').then(module => module.LegalModule) },
   { path: '**', redirectTo: '' },
 ];
 

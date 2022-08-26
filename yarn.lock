@@ -1223,6 +1223,23 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/facebook-js-sdk@3.3.2":
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/@types/facebook-js-sdk/-/facebook-js-sdk-3.3.2.tgz#4e34c7bf758a1ac848baef1dc3fc03e9b67553a6"
+  integrity sha512-s4L1r0lhdSz7Q138pnXU6/0escJCisKAgaIMOPiAOS32OxrdOkRTPXJShEd08jwmrvD3KCpj+kboWiH343n3vg==
+
+"@types/gapi.auth2@0.0.54":
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/@types/gapi.auth2/-/gapi.auth2-0.0.54.tgz#812207fb213fde4f2d74e6f0abd9da7ba34782ac"
+  integrity sha512-4HEphaKsGndb9+tnd2PBBmxloaij04iYXVsjgHpFxqbPFt5Le6pasoh5g5BEtwp/YEm9xDbzssp44BYR2/7RcQ==
+  dependencies:
+    "@types/gapi" "*"
+
+"@types/gapi@*", "@types/gapi@0.0.39":
+  version "0.0.39"
+  resolved "https://registry.yarnpkg.com/@types/gapi/-/gapi-0.0.39.tgz#bc7fa8cd0cb175b36e3609790fb2ed73a33f6881"
+  integrity sha512-R1TZeZbvvbIC60DBJMhuOEivQHzOQtzl3uMDOOENTYQTSSDB6oEMpJo8HVPOTWivdUTbyEcB5qQOVr/JCKRlCQ==
+
 "@types/glob@^7.1.1":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.1.3.tgz#e6ba80f36b7daad2c685acd9266382e68985c183"
@@ -5910,6 +5927,13 @@ map-visit@^1.0.0:
   integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   dependencies:
     object-visit "^1.0.0"
+
+mat-select-filter@2.3.9:
+  version "2.3.9"
+  resolved "https://registry.yarnpkg.com/mat-select-filter/-/mat-select-filter-2.3.9.tgz#0d0944de9306b19be3776040adffdb8fdc04e91c"
+  integrity sha512-bkPVsLEL0tm4dZ9hj/jqHTWDxtisMQhvIpcE50N8V9DtHEQEihIyut6RUEu1I8tMuFvKZcr8dhOyQWiipJdw2g==
+  dependencies:
+    tslib "^2.0.0"
 
 md5.js@^1.3.4:
   version "1.3.5"

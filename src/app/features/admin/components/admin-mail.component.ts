@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Subscription } from "rxjs";
-import { MailSendingService } from "../services/mail-sending.service";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { MailSendingService } from '../services/mail-sending.service';
 
 @Component({
     selector: 'app-admin-mail',
@@ -38,7 +38,7 @@ export class AdminMailComponent implements OnInit, OnDestroy {
 
     public sendEmail(event: Event) {
         event.preventDefault();
-        for (let control of Object.keys(this.form.controls))
+        for (const control of Object.keys(this.form.controls))
             this.form.controls[control].markAsDirty();
 
         if (!this.form.valid)

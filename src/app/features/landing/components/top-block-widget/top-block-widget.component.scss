@@ -1,7 +1,10 @@
 .mat-menu-content {
-    background-color: $menuColor !important;
-    a {
-        color: white;
+    .menu-wrapper {
+        background-color: $menuColor !important;
+
+        a {
+            color: white;
+        }
     }
 }
 

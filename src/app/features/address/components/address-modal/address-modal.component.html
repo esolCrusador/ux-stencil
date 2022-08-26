@@ -1,0 +1,8 @@
+<my-modal>
+    <div class="modal-title">
+        {{ address?.addressId ? 'Edit' : 'Add'  }} Address
+    </div>
+    <div class="modal-content">
+        <my-address-form [value]="address" [disabled]="disabled" (valueChanged)="onAddressUpdated($event)" (cancelled)="onCancel()"></my-address-form>
+    </div>
+</my-modal>

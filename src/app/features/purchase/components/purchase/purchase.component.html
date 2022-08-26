@@ -1,0 +1,39 @@
+<div id="purchase-component">
+    <div id="top-panel">
+        <div id="page-header">
+            <h3>
+                UX_<span class="swag">STENCIL<span class="swag-background over-text"></span></span>
+            </h3>
+        </div>
+        <div id="right-menu" class="section">
+            <a [routerLink]="['/', 'purchase', 'cart']" class="active">
+                <i class="icon-cart">
+                </i>
+                {{ itemsCount$ | async }}
+            </a>
+        </div>
+        <div id="main-menu">
+            <div *ngIf="isMobile$ | async;else expandedMenu" class="collapsed section">
+                <i class="active icon-menu" [matMenuTriggerFor]="menu">
+                </i>
+
+                <mat-menu #menu="matMenu">
+                    <my-menu>
+                    </my-menu>
+                </mat-menu>
+            </div>
+            <ng-template #expandedMenu>
+                <div class="expanded">
+                    <div></div>
+                    <my-menu [direction]="MenuDirection.AlwaysHorizontal">
+                    </my-menu>
+                    <div></div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div class="content">
+        <router-outlet>
+        </router-outlet>
+    </div>
+</div>

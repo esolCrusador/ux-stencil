@@ -1,0 +1,33 @@
+.items-container {
+    .item-card {
+        display: flex;
+
+        .item-image {
+            width: 75px;
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .item-properties {
+        display: flex;
+        flex-flow: column;
+
+        justify-content: center;
+        padding: 0 20px;
+
+        .item-name {
+            font-weight: 400;
+            white-space: nowrap;
+            @include dynamicSize(18, 22);
+        }
+    }
+
+    .item-price {
+        @include dynamicSize(16, 20);
+        font-weight: 700;
+        font-family: "Montserrat", "Proxima Nova";
+        color: $appBlack;
+    }
+}

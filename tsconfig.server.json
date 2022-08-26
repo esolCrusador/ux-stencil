@@ -5,7 +5,11 @@
     "outDir": "./out-tsc/server",
     "target": "es2016",
     "types": [
-      "node"
+      "node",
+      "google.analytics",
+      "facebook-js-sdk",
+      "gapi",
+      "gapi.auth2"
     ]
   },
   "files": [

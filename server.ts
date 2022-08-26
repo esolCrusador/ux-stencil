@@ -35,19 +35,20 @@ export function app(): express.Express {
   }));
 
   server.use((request, response, next) => {
-    if(!request.baseUrl){
+    if (!request.baseUrl) {
       const protocol = request.header('X-Forwarded-Proto') || request.protocol;
       const host = request.header('Host');
 
       request.baseUrl = `${protocol}://${host}`;
     }
+    // tslint:disable-next-line:no-console
     console.debug('Base Url', request.baseUrl);
-    
+
     next();
   });
 
   // All regular routes use the Universal engine
-  server.get('*' , compiledResponseHandler(join(distFolder, 'index.html')), (req, res) => {
+  server.get('*' , compiledResponseHandler(path => join(distFolder, path, 'index.html')), (req, res) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 
@@ -60,6 +61,7 @@ export function run(): void {
   // Start up the Node server
   const server = app();
   server.listen(port, () => {
+    // tslint:disable-next-line:no-console
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }

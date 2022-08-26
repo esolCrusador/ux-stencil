@@ -1,4 +1,4 @@
-@import '~@angular/material/_theming.scss';
+@import "~@angular/material/_theming.scss";
 
 @include mat-core();
 
@@ -7,3 +7,10 @@ $candy-app-accent: mat-palette($mat-amber, A200, A100, A400);
 $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
 
 @include mat-menu-theme($candy-app-theme);
+@include mat-form-field-theme($candy-app-theme);
+@include mat-checkbox-theme($candy-app-theme);
+@include mat-select-theme($candy-app-theme);
+@include mat-dialog-theme($candy-app-theme);
+@include mat-radio-theme($candy-app-theme);
+
+@include cdk-text-field();
